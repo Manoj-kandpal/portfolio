@@ -33,6 +33,7 @@ portfolio/
 ├── styles.css          # Design system tokens, CSS variables & responsive layouts
 ├── script.js           # Template rendering engine & UI interactive logic
 ├── assets/
+│   ├── favicon.svg               # MK Monogram favicon
 │   ├── profile-placeholder.jpg   # Profile photo
 │   └── Manoj_kandpal_resume.pdf  # Resume PDF
 └── README.md
