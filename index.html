@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manoj Kandpal — Full Stack Software Engineer</title>
+<meta name="description" content="Portfolio of Manoj Kandpal, Full Stack Software Engineer building enterprise web platforms with Java, Spring Boot, React and Next.js.">
+
+<!-- Open Graph / Social Media Preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://manoj-kandpal.github.io/portfolio/">
+<meta property="og:title" content="Manoj Kandpal — Full Stack Software Engineer">
+<meta property="og:description" content="Portfolio of Manoj Kandpal, Full Stack Software Engineer building enterprise web platforms with Java, Spring Boot, React and Next.js.">
+<meta property="og:image" content="assets/profile-placeholder.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Manoj Kandpal — Full Stack Software Engineer">
+<meta name="twitter:description" content="Portfolio of Manoj Kandpal, Full Stack Software Engineer building enterprise web platforms with Java, Spring Boot, React and Next.js.">
+<meta name="twitter:image" content="assets/profile-placeholder.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo" id="navLogo"><span class="logo-mark">MK</span> Manoj Kandpal</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div style="display:flex; align-items:center; gap:12px;">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2 12h2.4M19.6 12H22M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner" id="heroContent"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="wrap about-grid" id="aboutContent"></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap" id="experienceContent"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" style="background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap" id="skillsContent"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap" id="projectsContent"></div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section style="background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+    <div class="wrap" id="backgroundContent"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap" id="contactContent"></div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> <span id="footerName">Manoj Kandpal</span>. All rights reserved.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

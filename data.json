@@ -1,0 +1,249 @@
+{
+  "profile": {
+    "name": "Manoj Kandpal",
+    "initials": "MK",
+    "title": "Full Stack Software Engineer",
+    "location": "Bengaluru, India",
+    "eyebrow": "Full Stack Software Engineer — Bengaluru, India",
+    "heroHeadline": "Manoj Kandpal",
+    "heroRole": "Building enterprise platforms that ship, from API to interface.",
+    "heroSub": "4+ years engineering web applications end to end — <strong>Java & Spring Boot</strong> microservices on Azure, paired with <strong>React, Next.js & Nuxt.js</strong> frontends used by <strong>10,000+ daily users</strong> at A.P. Moller – Maersk.",
+    "photo": "assets/profile-placeholder.jpg",
+    "resume": "assets/Manoj_kandpal_resume.pdf",
+    "email": "manojkandpal.official@gmail.com",
+    "phone": "+91 72480 43509",
+    "phoneRaw": "+917248043509",
+    "linkedin": "https://linkedin.com/in/m-kandpal",
+    "github": "https://github.com/Manoj-kandpal"
+  },
+  "about": {
+    "eyebrow": "About",
+    "paragraphs": [
+      "I'm a full stack engineer who enjoys the whole stack — designing REST APIs and Spring Boot microservices on one side, and building fast, accessible React and Next.js interfaces on the other.",
+      "At A.P. Moller – Maersk, I've spent 4+ years shipping features for enterprise web platforms — from modernizing global navigation on maersk.com to leading an AI-powered support widget and driving double-digit engagement gains through A/B testing and behavioral analytics."
+    ],
+    "stats": [
+      {
+        "value": "4+",
+        "label": "Years of experience"
+      },
+      {
+        "value": "10k+",
+        "label": "Daily active users served"
+      },
+      {
+        "value": "3x",
+        "label": "Spot Awards at Maersk"
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Four years, one company, two chapters of growth.",
+    "subtitle": "Every stop on this route is a real milestone — from associate engineer to owning AI-driven features end to end.",
+    "jobs": [
+      {
+        "role": "Software Engineer",
+        "company": "A.P. Moller – Maersk, Bengaluru",
+        "date": "Sep 2025 — Present",
+        "highlights": [
+          "Design and build new Java & Spring Boot microservices and REST APIs, integrating them with the Next.js frontend on Azure and optimizing data serialization and caching for UI responsiveness.",
+          "Migrated legacy Spring Boot 2.x microservices to modern releases, enhancing application security posture, startup speed, and API reliability.",
+          "Build reusable Sitecore CMS components and Nuxt.js enterprise web apps used by 10,000+ daily global users.",
+          "Modernized Maersk.com's Integrated Global Navigation frontend into a scalable, intuitive UI.",
+          "Lead the Ask Maersk AI web component, maintaining a 30–35% CTR while lowering support case creation.",
+          "Design and run targeted A/B experiments that lifted overall engagement by 10–15%.",
+          "Instrument GTM dataLayer events and build dashboards to map user traffic and guide content improvements."
+        ]
+      },
+      {
+        "role": "Associate Software Engineer",
+        "company": "A.P. Moller – Maersk, Bengaluru",
+        "date": "Mar 2022 — Aug 2025",
+        "highlights": [
+          "Full stack developer on the core Case Management platform — built backend microservices in Java & Spring Boot on Azure, and the Next.js frontend.",
+          "Migrated manual testing to Cypress, cutting regression testing effort by 80–90%.",
+          "Optimized frontend and backend performance across legacy modules to improve UI responsiveness and API efficiency.",
+          "Deployed semantic, SEO-friendly frontend architecture across production pages to maximize discoverability.",
+          "Active in sprint planning, estimation, retrospectives and daily PR code reviews."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "title": "The toolkit, end to end.",
+    "subtitle": "From data structures to deployment — the layers I work across daily.",
+    "categories": [
+      {
+        "name": "Languages",
+        "items": [
+          "Java",
+          "JavaScript",
+          "TypeScript",
+          "Python (Basic)"
+        ]
+      },
+      {
+        "name": "Frontend",
+        "items": [
+          "React",
+          "Next.js",
+          "Nuxt.js",
+          "Vue",
+          "HTML5",
+          "CSS3 / SCSS"
+        ]
+      },
+      {
+        "name": "Backend & APIs",
+        "items": [
+          "Spring Boot",
+          "Hibernate (JPA)",
+          "Node.js",
+          "REST APIs",
+          "Microservices",
+          "Kafka",
+          "Apigee",
+          "OpenAPI / Swagger"
+        ]
+      },
+      {
+        "name": "Databases",
+        "items": [
+          "PostgreSQL",
+          "MySQL",
+          "Oracle SQL Developer"
+        ]
+      },
+      {
+        "name": "Cloud, DevOps & Testing",
+        "items": [
+          "Azure",
+          "Docker",
+          "Kubernetes",
+          "GitHub Actions",
+          "Grafana",
+          "Cypress",
+          "Mockito"
+        ]
+      },
+      {
+        "name": "AI-Assisted Development",
+        "items": [
+          "GitHub Copilot",
+          "Claude Code",
+          "Cursor",
+          "Google Antigravity",
+          "OpenAI API",
+          "OpenAI Codex"
+        ]
+      },
+      {
+        "name": "Development Tools",
+        "items": [
+          "IntelliJ IDEA",
+          "VS Code",
+          "Postman",
+          "Bruno"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "A couple of things built outside the day job.",
+    "subtitle": "Personal builds that dig into frontend craft and backend architecture.",
+    "items": [
+      {
+        "title": "Website Navigation",
+        "description": "A fully responsive, template-based website navigation bar with dynamic menu states and smooth UI transitions, bundled with Webpack for automated asset management.",
+        "tags": [
+          "JavaScript",
+          "HTML",
+          "SCSS",
+          "Webpack"
+        ],
+        "github": "https://github.com/Manoj-kandpal/Header",
+        "demo": "https://manoj-kandpal.github.io/Header/"
+      },
+      {
+        "title": "Article Hub",
+        "description": "A scalable RESTful backend built with Java, Spring Boot and PostgreSQL, with JWT authentication, role-based access control and full OpenAPI/Swagger documentation.",
+        "tags": [
+          "Java",
+          "Spring Boot",
+          "PostgreSQL",
+          "JWT"
+        ],
+        "github": "https://github.com/Manoj-kandpal/Article-hub-backend"
+      }
+    ]
+  },
+  "background": {
+    "eyebrow": "Background",
+    "title": "Education, certifications & recognition.",
+    "education": [
+      {
+        "degree": "Bachelor of Engineering in Computer Science & Engineering",
+        "institution": "RNS Institute of Technology, Bengaluru, Karnataka",
+        "grade": "CGPA: 9.21 / 10",
+        "period": "Graduated Jul 2022"
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Algorithmic Toolbox",
+        "issuer": "UC San Diego",
+        "link": "https://coursera.org/verify/SXPU9566KL2J"
+      },
+      {
+        "title": "Python 3 Programming Specialization",
+        "issuer": "University of Michigan",
+        "link": "https://coursera.org/verify/specialization/YCNU37CH6EUE"
+      },
+      {
+        "title": "HTML, CSS & JavaScript for Web Developers",
+        "issuer": "Johns Hopkins University",
+        "link": "https://coursera.org/verify/Y4ZVB7RNGKL9"
+      },
+      {
+        "title": "Python for Data Science",
+        "issuer": "IBM",
+        "link": "https://courses.cognitiveclass.ai/certificates/fca2b8a43015432caad55427f1a37795"
+      }
+    ],
+    "achievements": [
+      {
+        "title": "Spot Awards (x3)",
+        "issuer": "A.P. Moller – Maersk",
+        "description": "Recognized with 3 Spot Awards for technical excellence, ownership, and impactful delivery on global platforms."
+      },
+      {
+        "title": "Certified Software Programmer",
+        "issuer": "Infosys",
+        "description": "Cleared the Infosys Certified Software Programmer assessment."
+      },
+      {
+        "title": "5-Star Problem Solving & Python",
+        "issuer": "HackerRank",
+        "description": "Earned 5-Star badges & verified certifications in Problem Solving and Python tracks.",
+        "links": [
+          {
+            "label": "Problem Solving Cert",
+            "url": "https://www.hackerrank.com/certificates/13dd11ff06f5"
+          },
+          {
+            "label": "Python Cert",
+            "url": "https://www.hackerrank.com/certificates/11c0b1cd54f3"
+          }
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's build something reliable together.",
+    "subtitle": "Open to full stack roles and interesting collaborations. The fastest way to reach me is email."
+  }
+}
