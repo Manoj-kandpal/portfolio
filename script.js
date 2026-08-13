@@ -141,6 +141,11 @@ function initCookieConsent() {
         window.gtag('consent', 'update', {
           'analytics_storage': 'granted'
         });
+        window.gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname
+        });
       }
       banner.setAttribute('hidden', 'true');
     });
