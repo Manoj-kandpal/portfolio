@@ -158,8 +158,9 @@
     "items": [
       {
         "title": "Portfolio Website",
-        "description": "A lightweight, high-performance developer portfolio built with Static Site Generation (SSG), pre-rendered semantic HTML, custom GA4 analytics event tracking, and Google Search Console SEO optimization.",
+        "description": "A lightweight, high-performance developer portfolio co-engineered with Google Antigravity AI pair programming. Built with Static Site Generation (SSG), pre-rendered semantic HTML, custom GA4 analytics event tracking with Consent Mode v2, and Google Search Console SEO optimization.",
         "tags": [
+          "Google Antigravity",
           "JavaScript",
           "Node.js",
           "SSG",
