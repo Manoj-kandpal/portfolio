@@ -3,55 +3,142 @@
     "name": "Manoj Kandpal",
     "title": "Full Stack Software Engineer",
     "location": "Bengaluru, India",
-    "summary": "4+ years engineering web applications end to end — Java & Spring Boot microservices on Azure, paired with React, Next.js & Nuxt.js frontends used by 10,000+ daily users at A.P. Moller – Maersk."
+    "phone": "+91-7248043509",
+    "email": "manojkandpal.official@gmail.com",
+    "summary": "Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end — from JavaScript/TypeScript frontends (React, Nuxt.js, Vue) to Java and Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale."
   },
   "contact": {
     "email": "manojkandpal.official@gmail.com",
-    "phone": "+91 72480 43509",
+    "phone": "+91-7248043509",
     "linkedin": "https://linkedin.com/in/m-kandpal",
-    "github": "https://github.com/Manoj-kandpal"
+    "github": "https://github.com/Manoj-kandpal",
+    "portfolio": "https://manoj-kandpal.github.io/portfolio"
   },
   "education": {
-    "degree": "Bachelor of Engineering (B.E.) in Computer Science & Engineering",
+    "degree": "Bachelor of Engineering (B.E.) in Computer Science",
     "institution": "RNS Institute of Technology (RNSIT), Bengaluru",
-    "duration": "2018 – 2022",
-    "cgpa": "8.44 / 10"
+    "graduated": "Jul 2022",
+    "cgpa": "9.21 / 10"
   },
   "certifications": [
-    "Oracle Certified Professional: Java SE 11 Developer",
-    "Spring Certified Professional"
+    "Algorithmic Toolbox — UC San Diego",
+    "Python 3 Programming Specialization — University of Michigan",
+    "HTML, CSS and JavaScript for Web Developers — Johns Hopkins University",
+    "Python for Data Science — IBM"
+  ],
+  "achievements": [
+    "Spot Awards (x3) — A.P. Moller – Maersk",
+    "Infosys Certified Software Programmer",
+    "5 Star Problem Solving & Python — HackerRank"
   ],
   "experience": [
     {
       "company": "A.P. Moller – Maersk",
-      "role": "Full Stack Software Engineer",
-      "period": "Jul 2022 – Present",
-      "location": "Bengaluru, India",
+      "role": "Software Engineer",
+      "location": "Bengaluru, Karnataka",
+      "period": "Sep 2025 – Present",
       "highlights": [
-        "Modernized global website navigation on maersk.com serving 10,000+ daily active users.",
-        "Led integration of an AI-powered customer support widget.",
-        "Built Azure-hosted Spring Boot microservices and REST APIs.",
-        "Awarded 3x Spot Awards at Maersk for technical excellence."
+        "Design and build new Java and Spring Boot microservices and REST APIs for feature rollouts, integrated with the Next.js frontend on Azure, optimizing data serialization and caching to improve UI responsiveness.",
+        "Migrated legacy Spring Boot 2.x microservices to modern releases, enhancing security posture, startup speed, and API reliability.",
+        "Created reusable Sitecore CMS components with Vanilla JavaScript and built Nuxt.js enterprise web apps used by 10,000+ daily global users.",
+        "Modernized Maersk.com's Integrated Global Navigation frontend, delivering a highly scalable and intuitive UI.",
+        "Lead the Ask Maersk AI Web Component, maintaining a 30–35% CTR while consistently lowering support case creation.",
+        "Participate actively in daily Scrum sprints, performing peer code reviews and mentoring team members.",
+        "Designed and executed targeted A/B experiments to optimize user workflows, driving a 10–15% boost in overall engagement.",
+        "Implemented behavioral analytics by instrumenting GTM dataLayer events and building dashboards to map user traffic."
+      ]
+    },
+    {
+      "company": "A.P. Moller – Maersk",
+      "role": "Associate Software Engineer",
+      "location": "Bengaluru, Karnataka",
+      "period": "Mar 2022 – Aug 2025",
+      "highlights": [
+        "Worked as a full stack developer on the core Case Management platform — built and maintained backend microservices using Java, Spring Boot, and Azure cloud-native architectures, and developed the Next.js frontend.",
+        "Participated actively in Agile/Scrum processes including sprint planning, estimation, retrospectives, and daily pull request code reviews using Git.",
+        "Optimized frontend and backend performance across legacy modules to improve UI responsiveness and API efficiency.",
+        "Deployed semantic, SEO-friendly frontend architecture across production pages to maximize search engine discoverability.",
+        "Migrated manual testing to Cypress, reducing regression testing efforts by 80–90%."
       ]
     }
   ],
   "skills": {
-    "backend": ["Java", "Spring Boot", "REST APIs", "Microservices", "PostgreSQL", "JWT"],
-    "frontend": ["React", "Next.js", "Nuxt.js", "JavaScript (ES6+)", "HTML5", "SCSS/CSS3"],
-    "cloudAndTools": ["Azure", "Webpack", "Docker", "Git", "Agile/Scrum"]
+    "languages": [
+      "Java",
+      "JavaScript",
+      "TypeScript",
+      "Python (Basic)"
+    ],
+    "frontend": [
+      "ReactJS",
+      "NextJS",
+      "NuxtJS",
+      "VueJS",
+      "Vanilla JS",
+      "HTML5",
+      "CSS3",
+      "SCSS"
+    ],
+    "backendAndApis": [
+      "Spring Boot",
+      "NodeJS",
+      "REST APIs",
+      "Microservices",
+      "Kafka",
+      "Apigee API Gateway",
+      "OpenAPI/Swagger"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL"
+    ],
+    "cloudDevOpsTesting": [
+      "Azure",
+      "Docker",
+      "Kubernetes",
+      "Git",
+      "GitHub Actions",
+      "CI/CD",
+      "Agile/Scrum",
+      "Grafana",
+      "Cypress",
+      "Mockito"
+    ],
+    "engineeringFundamentals": [
+      "Data Structures & Algorithms (DSA)",
+      "System Design",
+      "LLD",
+      "HLD",
+      "OOP"
+    ],
+    "aiAssistedDevelopment": [
+      "GitHub Copilot",
+      "Claude Code",
+      "ChatGPT/OpenAI API",
+      "OpenAI Codex"
+    ]
   },
   "projects": [
     {
       "name": "Portfolio Website",
-      "description": "Co-engineered with Google Antigravity AI using SSG, GA4 Consent Mode v2, Cloudflare AI Proxy, and Technical SEO."
+      "description": "Co-engineered with Google Antigravity AI using SSG, GA4 Consent Mode v2, a Cloudflare AI Proxy, and technical SEO.",
+      "links": {
+        "site": "https://manoj-kandpal.github.io/portfolio"
+      }
     },
     {
       "name": "Website Navigation",
-      "description": "Template-based navigation bar with dynamic menu states & Webpack."
+      "description": "Engineered a fully responsive, template-based website navigation bar built with JavaScript, HTML, and SCSS. Built dynamic menu states and smooth UI transitions, using Webpack for automated asset management.",
+      "links": {
+        "github": "https://github.com/Manoj-kandpal"
+      }
     },
     {
       "name": "Article Hub",
-      "description": "Scalable Spring Boot & PostgreSQL backend with JWT authentication & OpenAPI docs."
+      "description": "Scalable RESTful backend built with Java, Spring Boot, and PostgreSQL. Implemented JWT authentication and role-based access control (RBAC), with OpenAPI/Swagger specs and automated unit testing.",
+      "links": {
+        "github": "https://github.com/Manoj-kandpal"
+      }
     }
   ]
 }

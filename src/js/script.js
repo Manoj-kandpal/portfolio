@@ -317,27 +317,28 @@ function initAIChatWidget() {
     return "I'm Manoj's AI Assistant! You can ask me about his <strong>experience at Maersk</strong>, <strong>education (B.E. at RNSIT)</strong>, <strong>technical stack (Java, Spring Boot, React)</strong>, <strong>projects</strong>, or <strong>contact info</strong>.";
   }
 
-  // Live Google Gemini 1.5 Flash LLM Call (via Proxy or API Key)
+  // Live Google Gemini 1.5/2.0 Flash LLM Call (via Proxy or API Key)
   async function fetchGeminiResponse(userQuery) {
-    const proxyUrl = window.AI_PROXY_URL || localStorage.getItem('mk-ai-proxy');
+    const DEFAULT_PROXY = 'https://manoj-portfolio-ai.manojkandpal-official.workers.dev';
+    const proxyUrl = window.AI_PROXY_URL || localStorage.getItem('mk-ai-proxy') || DEFAULT_PROXY;
     const apiKey = localStorage.getItem('mk-gemini-key') || window.DEFAULT_GEMINI_KEY || '';
     const kbData = window.PORTFOLIO_KB || {};
-
-    const systemPrompt = `You are Manoj Kandpal's official AI Portfolio Assistant. Answer the user's question accurately, concisely, and professionally using ONLY the following knowledge base about Manoj. Format your response cleanly using short paragraphs and bullet points if helpful. Do NOT make up facts not present in the knowledge base.
+    const systemInstruction = `You are Manoj Kandpal's official AI Portfolio Assistant. Answer the user's question accurately, concisely, and professionally using ONLY the following knowledge base about Manoj. Format your response cleanly using short paragraphs and bullet points if helpful. Do NOT make up facts not present in the knowledge base.
 
 MANOJ KANDPAL KNOWLEDGE BASE:
-${JSON.stringify(kbData, null, 2)}
+${JSON.stringify(kbData, null, 2)}`;
 
-USER QUESTION: ${userQuery}`;
+    const combinedPrompt = `${systemInstruction}\n\nUSER QUESTION: ${userQuery}`;
 
     const payload = {
+      userQuery: userQuery,
+      kbData: kbData,
+      systemInstruction: systemInstruction,
+      // Backward compatibility fallback for generateContent or single input
+      input: combinedPrompt,
       contents: [{
-        parts: [{ text: systemPrompt }]
-      }],
-      generationConfig: {
-        temperature: 0.2,
-        maxOutputTokens: 400
-      }
+        parts: [{ text: combinedPrompt }]
+      }]
     };
 
     try {
@@ -366,7 +367,18 @@ USER QUESTION: ${userQuery}`;
 
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      // Support both Interactions API format and generateContent format
+      let rawText = null;
+      if (data?.steps && Array.isArray(data.steps)) {
+        const modelStep = data.steps.find(s => s.type === 'model_output' || s.content);
+        const textObj = modelStep?.content?.find(c => c.type === 'text' || c.text);
+        if (textObj?.text) rawText = textObj.text;
+      }
+      if (!rawText && data?.candidates?.[0]?.content?.parts?.[0]?.text) {
+        rawText = data.candidates[0].content.parts[0].text;
+      }
+
       return rawText ? formatMarkdownText(rawText) : generateFallbackResponse(userQuery);
     } catch (err) {
       console.warn('AI LLM call failed, falling back to knowledge base:', err);
