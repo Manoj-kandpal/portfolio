@@ -56,7 +56,7 @@ function renderAbout(data) {
 
   return `
     <div class="about-photo reveal">
-      <img id="profileImg" src="${p.photo || 'assets/profile-placeholder.jpg'}" alt="${p.name || 'Profile'}">
+      <img id="profileImg" src="${p.photo || 'assets/profile-placeholder.jpg'}" alt="${p.name || 'Profile'}" loading="lazy" decoding="async">
     </div>
     <div class="about-text reveal">
       <p class="eyebrow">${a.eyebrow || 'About'}</p>
