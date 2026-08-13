@@ -423,3 +423,115 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
     max-width: none;
   }
 }
+
+/* ============ ACCESSIBILITY & ACTIVE NAV ============ */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.nav-links a {
+  position: relative;
+}
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ============ FLOATING BACK TO TOP ============ */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 42px;
+  height: 42px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px var(--shadow);
+  z-index: 999;
+  text-decoration: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+.back-to-top:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.back-to-top[hidden] {
+  display: none !important;
+}
+
+/* ============ TOAST NOTIFICATION ============ */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--surface);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 0.86rem;
+  font-family: var(--font-mono);
+  box-shadow: 0 10px 28px var(--shadow);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: toastFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast[hidden] {
+  display: none !important;
+}
+@keyframes toastFadeIn {
+  from { opacity: 0; transform: translate(-50%, 12px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ============ PRINT STYLES (PDF RESUME VIEW) ============ */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt !important;
+  }
+  .nav, .theme-toggle, .nav-toggle, .hero-cta, .cookie-banner, .back-to-top, .toast, footer {
+    display: none !important;
+  }
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  section {
+    padding: 16px 0 !important;
+    border: none !important;
+    background: none !important;
+    break-inside: avoid;
+  }
+  .wrap {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .timeline-item, .project-card, .info-card, .achievement-row, .cert-card-item {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .eyebrow {
+    color: #555 !important;
+  }
+  a {
+    color: #111 !important;
+    text-decoration: underline !important;
+  }
+}

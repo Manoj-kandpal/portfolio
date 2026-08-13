@@ -165,6 +165,72 @@ function initCookieConsent() {
   }
 }
 
+// ---------- Scrollspy (Active Nav Link Indicator) ----------
+function initScrollspy() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  sections.forEach(section => observer.observe(section));
+}
+
+// ---------- Floating Back to Top Button ----------
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  function toggleBackToTop() {
+    if (window.scrollY > 400) {
+      btn.removeAttribute('hidden');
+    } else {
+      btn.setAttribute('hidden', 'true');
+    }
+  }
+
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  toggleBackToTop();
+}
+
+// ---------- Toast Notification & Copy Email ----------
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  if (!toast) return;
+  toast.textContent = message;
+  toast.removeAttribute('hidden');
+
+  setTimeout(() => {
+    toast.setAttribute('hidden', 'true');
+  }, 2500);
+}
+
+function initCopyEmailToast() {
+  document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+    el.addEventListener('click', () => {
+      const email = el.href.replace('mailto:', '').trim();
+      if (navigator.clipboard && email) {
+        navigator.clipboard.writeText(email).then(() => {
+          showToast('📋 Email copied to clipboard!');
+        }).catch(() => {});
+      }
+    });
+  });
+}
+
 // Launch interactive features & event tracking on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -173,4 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initAnalyticsEvents();
   initCookieConsent();
+  initScrollspy();
+  initBackToTop();
+  initCopyEmailToast();
 });
