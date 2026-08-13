@@ -68,7 +68,7 @@ function initProfileImgFallback() {
     img.addEventListener('error', () => {
       img.replaceWith(Object.assign(document.createElement('div'), {
         className: 'placeholder',
-        textContent: 'Add your photo at assets/profile-placeholder.jpg (or update the photo path in data.json)'
+        textContent: 'Add your photo at assets/manoj-kandpal.jpg (or update the photo path in data.json)'
       }));
     });
   }
