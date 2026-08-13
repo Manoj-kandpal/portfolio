@@ -116,6 +116,44 @@ function initAnalyticsEvents() {
   });
 }
 
+// ---------- Cookie Consent Management ----------
+function initCookieConsent() {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+
+  const savedConsent = localStorage.getItem('mk-cookie-consent');
+  if (!savedConsent) {
+    banner.removeAttribute('hidden');
+  }
+
+  const acceptBtn = document.getElementById('cookieAccept');
+  const declineBtn = document.getElementById('cookieDecline');
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('mk-cookie-consent', 'granted');
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'granted'
+        });
+      }
+      banner.setAttribute('hidden', 'true');
+    });
+  }
+
+  if (declineBtn) {
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('mk-cookie-consent', 'denied');
+      if (typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+          'analytics_storage': 'denied'
+        });
+      }
+      banner.setAttribute('hidden', 'true');
+    });
+  }
+}
+
 // Launch interactive features & event tracking on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -123,4 +161,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initProfileImgFallback();
   initFooterYear();
   initAnalyticsEvents();
+  initCookieConsent();
 });

@@ -11,13 +11,23 @@
 <meta name="author" content="Manoj Kandpal">
 <meta name="google-site-verification" content="nhLL-zk-2qwv9KrRlWxpcbMmfGuY_1kuGAEhFcRl2Ws" />
 
-<!-- Google tag (gtag.js) - Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNMFMG4EMJ"></script>
+<!-- Google tag (gtag.js) - Google Analytics 4 with Consent Mode v2 -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
+  // Set default consent mode (analytics_storage is denied by default until user consents)
+  const savedConsent = localStorage.getItem('mk-cookie-consent');
+  gtag('consent', 'default', {
+    'analytics_storage': savedConsent === 'granted' ? 'granted' : 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNMFMG4EMJ"></script>
+<script>
+  gtag('js', new Date());
   gtag('config', 'G-BNMFMG4EMJ');
 </script>
 
@@ -540,6 +550,20 @@
 <footer>
   &copy; <span id="year">2026</span> <span id="footerName">Manoj Kandpal</span>. All rights reserved.
 </footer>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie consent banner" hidden>
+  <div class="cookie-banner-content">
+    <div class="cookie-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5Z"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/><circle cx="12" cy="14" r="1.5" fill="currentColor"/><circle cx="7" cy="15" r="1.5" fill="currentColor"/></svg>
+    </div>
+    <p>This site uses optional analytics cookies to measure page traffic and interaction data.</p>
+  </div>
+  <div class="cookie-actions">
+    <button id="cookieDecline" class="btn btn-ghost btn-sm">Decline</button>
+    <button id="cookieAccept" class="btn btn-primary btn-sm">Accept</button>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
