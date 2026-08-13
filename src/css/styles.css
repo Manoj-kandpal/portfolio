@@ -751,6 +751,12 @@ a:focus-visible, button:focus-visible {
   color: var(--ink);
   border-bottom-left-radius: 2px;
 }
+.bot-message ul, .bot-message ol { margin: 6px 0; padding-left: 18px; }
+.bot-message li { margin-bottom: 4px; }
+.bot-message code { background: rgba(0,0,0,0.06); padding: 2px 5px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.8rem; }
+.bot-message pre { background: var(--bg); padding: 8px 12px; border-radius: 6px; overflow-x: auto; font-family: var(--font-mono); font-size: 0.78rem; margin: 8px 0; }
+.bot-message a { color: var(--accent); text-decoration: underline; word-break: break-all; }
+.bot-message h1, .bot-message h2, .bot-message h3, .bot-message h4 { margin: 8px 0 4px 0; font-size: 0.92rem; }
 .user-message {
   align-self: flex-end;
   background: var(--accent);

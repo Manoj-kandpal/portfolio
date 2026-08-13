@@ -278,11 +278,81 @@ function initAIChatWidget() {
     }
   }
 
-  toggle.addEventListener('click', toggleWindow);
+  // Touch / Mouse Dragging for Floating Chat Toggle
+  let isDragging = false;
+  let hasMoved = false;
+  let startX = 0, startY = 0, origX = 0, origY = 0;
+
+  function handleDragStart(e) {
+    const pt = e.touches ? e.touches[0] : e;
+    startX = pt.clientX;
+    startY = pt.clientY;
+    const rect = toggle.getBoundingClientRect();
+    origX = rect.left;
+    origY = rect.top;
+    hasMoved = false;
+    isDragging = true;
+
+    window.addEventListener('mousemove', handleDragMove, { passive: false });
+    window.addEventListener('touchmove', handleDragMove, { passive: false });
+    window.addEventListener('mouseup', handleDragEnd);
+    window.addEventListener('touchend', handleDragEnd);
+  }
+
+  function handleDragMove(e) {
+    if (!isDragging) return;
+    const pt = e.touches ? e.touches[0] : e;
+    const dx = pt.clientX - startX;
+    const dy = pt.clientY - startY;
+
+    if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+      hasMoved = true;
+    }
+
+    if (hasMoved) {
+      if (e.cancelable) e.preventDefault();
+      toggle.style.position = 'fixed';
+      toggle.style.bottom = 'auto';
+      toggle.style.right = 'auto';
+
+      const maxLeft = window.innerWidth - toggle.offsetWidth;
+      const maxTop = window.innerHeight - toggle.offsetHeight;
+      const newLeft = Math.min(Math.max(10, origX + dx), maxLeft - 10);
+      const newTop = Math.min(Math.max(10, origY + dy), maxTop - 10);
+
+      toggle.style.left = `${newLeft}px`;
+      toggle.style.top = `${newTop}px`;
+    }
+  }
+
+  function handleDragEnd() {
+    isDragging = false;
+    window.removeEventListener('mousemove', handleDragMove);
+    window.removeEventListener('touchmove', handleDragMove);
+    window.removeEventListener('mouseup', handleDragEnd);
+    window.removeEventListener('touchend', handleDragEnd);
+  }
+
+  toggle.addEventListener('mousedown', handleDragStart);
+  toggle.addEventListener('touchstart', handleDragStart, { passive: true });
+
+  toggle.addEventListener('click', (e) => {
+    if (hasMoved) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      hasMoved = false;
+      return;
+    }
+    toggleWindow();
+  });
+
   if (closeBtn) closeBtn.addEventListener('click', () => chatWindow.setAttribute('hidden', 'true'));
 
-  // Markdown Formatter
+  // Markdown Formatter (uses marked.js if available)
   function formatMarkdownText(text) {
+    if (typeof window.marked !== 'undefined' && typeof window.marked.parse === 'function') {
+      return window.marked.parse(text);
+    }
     return text
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
