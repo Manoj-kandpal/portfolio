@@ -335,13 +335,26 @@ if (fs.existsSync(kbPath)) {
 
 fs.writeFileSync(indexPath, htmlContent, 'utf8');
 
-// Update sitemap.xml lastmod date
+// Update sitemap.xml lastmod date with ISO timestamp
 const sitemapPath = path.join(__dirname, '../sitemap.xml');
 if (fs.existsSync(sitemapPath)) {
   let sitemap = fs.readFileSync(sitemapPath, 'utf8');
-  const today = new Date().toISOString().split('T')[0];
-  sitemap = sitemap.replace(/<lastmod>.*?<\/lastmod>/, `<lastmod>${today}</lastmod>`);
+  const nowISO = new Date().toISOString();
+  sitemap = sitemap.replace(/<lastmod>.*?<\/lastmod>/, `<lastmod>${nowISO}</lastmod>`);
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
 }
 
-console.log('✅ SSG build complete! Pre-rendered content written to index.html & sitemap.xml updated.');
+// Update robots.txt timestamp header
+const robotsPath = path.join(__dirname, '../robots.txt');
+if (fs.existsSync(robotsPath)) {
+  let robots = fs.readFileSync(robotsPath, 'utf8');
+  const nowISO = new Date().toISOString();
+  if (robots.includes('# Last updated:')) {
+    robots = robots.replace(/# Last updated: .*/, `# Last updated: ${nowISO}`);
+  } else {
+    robots = `# Last updated: ${nowISO}\n` + robots;
+  }
+  fs.writeFileSync(robotsPath, robots, 'utf8');
+}
+
+console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, & robots.txt updated.');
