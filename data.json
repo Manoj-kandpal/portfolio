@@ -156,6 +156,20 @@
     "subtitle": "Personal builds that dig into frontend craft and backend architecture.",
     "items": [
       {
+        "title": "Portfolio Website",
+        "description": "A lightweight, high-performance developer portfolio built with Static Site Generation (SSG), pre-rendered semantic HTML, custom GA4 analytics event tracking, and Google Search Console SEO optimization.",
+        "tags": [
+          "JavaScript",
+          "Node.js",
+          "SSG",
+          "HTML5",
+          "CSS3",
+          "SEO"
+        ],
+        "github": "https://github.com/Manoj-kandpal/portfolio",
+        "demo": "https://manoj-kandpal.github.io/portfolio/"
+      },
+      {
         "title": "Website Navigation",
         "description": "A fully responsive, template-based website navigation bar with dynamic menu states and smooth UI transitions, bundled with Webpack for automated asset management.",
         "tags": [
