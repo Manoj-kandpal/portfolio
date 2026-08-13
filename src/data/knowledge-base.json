@@ -1,0 +1,57 @@
+{
+  "profile": {
+    "name": "Manoj Kandpal",
+    "title": "Full Stack Software Engineer",
+    "location": "Bengaluru, India",
+    "summary": "4+ years engineering web applications end to end — Java & Spring Boot microservices on Azure, paired with React, Next.js & Nuxt.js frontends used by 10,000+ daily users at A.P. Moller – Maersk."
+  },
+  "contact": {
+    "email": "manojkandpal.official@gmail.com",
+    "phone": "+91 72480 43509",
+    "linkedin": "https://linkedin.com/in/m-kandpal",
+    "github": "https://github.com/Manoj-kandpal"
+  },
+  "education": {
+    "degree": "Bachelor of Engineering (B.E.) in Computer Science & Engineering",
+    "institution": "RNS Institute of Technology (RNSIT), Bengaluru",
+    "duration": "2018 – 2022",
+    "cgpa": "8.44 / 10"
+  },
+  "certifications": [
+    "Oracle Certified Professional: Java SE 11 Developer",
+    "Spring Certified Professional"
+  ],
+  "experience": [
+    {
+      "company": "A.P. Moller – Maersk",
+      "role": "Full Stack Software Engineer",
+      "period": "Jul 2022 – Present",
+      "location": "Bengaluru, India",
+      "highlights": [
+        "Modernized global website navigation on maersk.com serving 10,000+ daily active users.",
+        "Led integration of an AI-powered customer support widget.",
+        "Built Azure-hosted Spring Boot microservices and REST APIs.",
+        "Awarded 3x Spot Awards at Maersk for technical excellence."
+      ]
+    }
+  ],
+  "skills": {
+    "backend": ["Java", "Spring Boot", "REST APIs", "Microservices", "PostgreSQL", "JWT"],
+    "frontend": ["React", "Next.js", "Nuxt.js", "JavaScript (ES6+)", "HTML5", "SCSS/CSS3"],
+    "cloudAndTools": ["Azure", "Webpack", "Docker", "Git", "Agile/Scrum"]
+  },
+  "projects": [
+    {
+      "name": "Portfolio Website",
+      "description": "Co-engineered with Google Antigravity AI using SSG, GA4 Consent Mode v2, Cloudflare AI Proxy, and Technical SEO."
+    },
+    {
+      "name": "Website Navigation",
+      "description": "Template-based navigation bar with dynamic menu states & Webpack."
+    },
+    {
+      "name": "Article Hub",
+      "description": "Scalable Spring Boot & PostgreSQL backend with JWT authentication & OpenAPI docs."
+    }
+  ]
+}

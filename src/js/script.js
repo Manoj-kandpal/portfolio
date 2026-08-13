@@ -257,6 +257,165 @@ function initCopyEmailToast() {
   });
 }
 
+// ---------- AI Assistant Chatbot ----------
+function initAIChatWidget() {
+  const toggle = document.getElementById('aiChatToggle');
+  const chatWindow = document.getElementById('aiChatWindow');
+  const closeBtn = document.getElementById('aiChatClose');
+  const messagesContainer = document.getElementById('aiChatMessages');
+  const form = document.getElementById('aiChatForm');
+  const input = document.getElementById('aiChatInput');
+
+  if (!toggle || !chatWindow || !form || !input || !messagesContainer) return;
+
+  function toggleWindow() {
+    const isHidden = chatWindow.hasAttribute('hidden');
+    if (isHidden) {
+      chatWindow.removeAttribute('hidden');
+      input.focus();
+    } else {
+      chatWindow.setAttribute('hidden', 'true');
+    }
+  }
+
+  toggle.addEventListener('click', toggleWindow);
+  if (closeBtn) closeBtn.addEventListener('click', () => chatWindow.setAttribute('hidden', 'true'));
+
+  // Markdown Formatter
+  function formatMarkdownText(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+      .replace(/\n\n/g, '<br><br>')
+      .replace(/\n\* /g, '<br>• ')
+      .replace(/\n- /g, '<br>• ');
+  }
+
+  // Local Knowledge Base Fallback
+  function generateFallbackResponse(userText) {
+    const query = userText.toLowerCase();
+    const kb = window.PORTFOLIO_KB || {};
+
+    if (query.includes('edu') || query.includes('degree') || query.includes('gradu') || query.includes('college') || query.includes('rns')) {
+      const edu = kb.education || {};
+      return `Manoj completed his <strong>${edu.degree || 'Bachelor of Engineering (B.E.) in Computer Science'}</strong> from <strong>${edu.institution || 'RNS Institute of Technology'}</strong> (${edu.duration || '2018–2022'}, CGPA: ${edu.cgpa || '8.44/10'}).`;
+    }
+
+    if (query.includes('tech') || query.includes('stack') || query.includes('skill') || query.includes('java') || query.includes('react') || query.includes('spring')) {
+      return "Manoj is a Full Stack Software Engineer specializing in <strong>Java & Spring Boot</strong> microservices on Azure, paired with <strong>React, Next.js, & Nuxt.js</strong> frontends.<br><br>• <strong>Backend</strong>: Java, Spring Boot, REST APIs, Microservices, PostgreSQL, JWT<br>• <strong>Frontend</strong>: React, Next.js, Nuxt.js, JavaScript (ES6+), HTML5, SCSS/CSS3<br>• <strong>Cloud & Tools</strong>: Azure, Webpack, Docker, Git, Agile/Scrum";
+    }
+
+    if (query.includes('maersk') || query.includes('experience') || query.includes('work') || query.includes('job') || query.includes('role')) {
+      return "Manoj has <strong>4+ years of engineering experience</strong> as a Full Stack Software Engineer at <strong>A.P. Moller – Maersk</strong> (Jul 2022 – Present).<br><br>Highlights:<br>• Modernized global website navigation on maersk.com serving <strong>10,000+ daily active users</strong>.<br>• Led integration of an AI-powered customer support widget.<br>• Built Azure-hosted Spring Boot microservices & REST APIs.<br>• Awarded <strong>3x Spot Awards</strong> at Maersk for technical excellence!";
+    }
+
+    if (query.includes('contact') || query.includes('email') || query.includes('phone') || query.includes('reach') || query.includes('hire') || query.includes('linkedin')) {
+      return "You can reach Manoj directly via:<br>• <strong>Email</strong>: <a href='mailto:manojkandpal.official@gmail.com'>manojkandpal.official@gmail.com</a><br>• <strong>Phone</strong>: +91 72480 43509<br>• <strong>LinkedIn</strong>: <a href='https://linkedin.com/in/m-kandpal' target='_blank' rel='noopener'>linkedin.com/in/m-kandpal</a><br>• <strong>GitHub</strong>: <a href='https://github.com/Manoj-kandpal' target='_blank' rel='noopener'>github.com/Manoj-kandpal</a>";
+    }
+
+    return "I'm Manoj's AI Assistant! You can ask me about his <strong>experience at Maersk</strong>, <strong>education (B.E. at RNSIT)</strong>, <strong>technical stack (Java, Spring Boot, React)</strong>, <strong>projects</strong>, or <strong>contact info</strong>.";
+  }
+
+  // Live Google Gemini 1.5 Flash LLM Call (via Proxy or API Key)
+  async function fetchGeminiResponse(userQuery) {
+    const proxyUrl = window.AI_PROXY_URL || localStorage.getItem('mk-ai-proxy');
+    const apiKey = localStorage.getItem('mk-gemini-key') || window.DEFAULT_GEMINI_KEY || '';
+    const kbData = window.PORTFOLIO_KB || {};
+
+    const systemPrompt = `You are Manoj Kandpal's official AI Portfolio Assistant. Answer the user's question accurately, concisely, and professionally using ONLY the following knowledge base about Manoj. Format your response cleanly using short paragraphs and bullet points if helpful. Do NOT make up facts not present in the knowledge base.
+
+MANOJ KANDPAL KNOWLEDGE BASE:
+${JSON.stringify(kbData, null, 2)}
+
+USER QUESTION: ${userQuery}`;
+
+    const payload = {
+      contents: [{
+        parts: [{ text: systemPrompt }]
+      }],
+      generationConfig: {
+        temperature: 0.2,
+        maxOutputTokens: 400
+      }
+    };
+
+    try {
+      let res;
+      if (proxyUrl) {
+        // Option 1: Secure Cloudflare Worker Proxy (Key is 100% secret)
+        const reqHeaders = { 'Content-Type': 'application/json' };
+        if (!window.location.hostname.includes('manoj-kandpal.github.io')) {
+          reqHeaders['X-Portfolio-Dev-Secret'] = 'mk-dev-secret-local';
+        }
+        res = await fetch(proxyUrl, {
+          method: 'POST',
+          headers: reqHeaders,
+          body: JSON.stringify(payload)
+        });
+      } else if (apiKey) {
+        // Option 2: Direct Gemini API Call
+        res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } else {
+        return generateFallbackResponse(userQuery);
+      }
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      return rawText ? formatMarkdownText(rawText) : generateFallbackResponse(userQuery);
+    } catch (err) {
+      console.warn('AI LLM call failed, falling back to knowledge base:', err);
+      return generateFallbackResponse(userQuery);
+    }
+  }
+
+  function addMessage(text, isUser = false) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+    msgDiv.innerHTML = isUser ? `<p>${escapeHtml(text)}</p>` : text;
+    messagesContainer.appendChild(msgDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  async function handleUserQuery(promptText) {
+    addMessage(promptText, true);
+
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'message bot-message';
+    typingDiv.innerHTML = '<p><em>✨ Gemini LLM is thinking...</em></p>';
+    messagesContainer.appendChild(typingDiv);
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    const reply = await fetchGeminiResponse(promptText);
+    typingDiv.remove();
+    addMessage(reply, false);
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const val = input.value.trim();
+    if (!val) return;
+    input.value = '';
+    handleUserQuery(val);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (e.target.matches('.chip-btn')) {
+      const prompt = e.target.getAttribute('data-prompt');
+      if (prompt) handleUserQuery(prompt);
+    }
+  });
+}
+
 // Launch interactive features & event tracking on DOM load
 document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
@@ -268,4 +427,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollspy();
   initBackToTop();
   initCopyEmailToast();
+  initAIChatWidget();
 });

@@ -19,7 +19,10 @@ jobs:
         node-version: '20'
 
     - name: Run SSG Build Script
-      run: node build.js
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        AI_PROXY_URL: ${{ secrets.AI_PROXY_URL }}
+      run: node scripts/build.js
 
     - name: Verify build artifact integrity
       run: test -s index.html

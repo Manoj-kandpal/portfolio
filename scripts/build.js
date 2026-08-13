@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataPath = path.join(__dirname, 'data.json');
-const indexPath = path.join(__dirname, 'index.html');
+const dataPath = path.join(__dirname, '../src/data/data.json');
+const indexPath = path.join(__dirname, '../index.html');
 
 console.log('⚡ Starting SSG build process...');
 
@@ -317,10 +317,26 @@ if (yearRegex.test(htmlContent)) {
   htmlContent = htmlContent.replace(yearRegex, `<span id="year">${currentYear}</span>`);
 }
 
+// Embed Knowledge Base data, Proxy URL & optional Gemini API Key for AI Assistant
+const kbPath = path.join(__dirname, '../src/data/knowledge-base.json');
+if (fs.existsSync(kbPath)) {
+  const kbData = JSON.parse(fs.readFileSync(kbPath, 'utf8'));
+  const proxyScript = process.env.AI_PROXY_URL ? `<script>window.AI_PROXY_URL = "${process.env.AI_PROXY_URL}";</script>\n` : '';
+  const keyScript = process.env.GEMINI_API_KEY ? `<script>window.DEFAULT_GEMINI_KEY = "${process.env.GEMINI_API_KEY}";</script>\n` : '';
+  const kbScript = `<script>window.PORTFOLIO_KB = ${JSON.stringify(kbData)};</script>\n${proxyScript}${keyScript}<script src="src/js/script.js" defer></script>`;
+
+  // Strip old injected scripts if present
+  htmlContent = htmlContent.replace(/<script>window\.PORTFOLIO_KB = [\s\S]*?<\/script>\s*/g, '');
+  htmlContent = htmlContent.replace(/<script>window\.AI_PROXY_URL = [\s\S]*?<\/script>\s*/g, '');
+  htmlContent = htmlContent.replace(/<script>window\.DEFAULT_GEMINI_KEY = [\s\S]*?<\/script>\s*/g, '');
+
+  htmlContent = htmlContent.replace(/<script\s+src="src\/js\/script\.js"\s+defer><\/script>/gi, kbScript);
+}
+
 fs.writeFileSync(indexPath, htmlContent, 'utf8');
 
 // Update sitemap.xml lastmod date
-const sitemapPath = path.join(__dirname, 'sitemap.xml');
+const sitemapPath = path.join(__dirname, '../sitemap.xml');
 if (fs.existsSync(sitemapPath)) {
   let sitemap = fs.readFileSync(sitemapPath, 'utf8');
   const today = new Date().toISOString().split('T')[0];

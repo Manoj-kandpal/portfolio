@@ -4,7 +4,7 @@
   "description": "Static Site Generated portfolio of Manoj Kandpal, Full Stack Software Engineer",
   "main": "script.js",
   "scripts": {
-    "build": "node build.js"
+    "build": "node scripts/build.js"
   },
   "keywords": [
     "portfolio",
