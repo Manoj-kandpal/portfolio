@@ -123,11 +123,24 @@ function initAnalyticsEvents() {
 // ---------- Cookie Consent Management ----------
 function initCookieConsent() {
   const banner = document.getElementById('cookieBanner');
+  const overlay = document.getElementById('cookieOverlay');
   if (!banner) return;
+
+  function showConsentModal() {
+    banner.removeAttribute('hidden');
+    if (overlay) overlay.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideConsentModal() {
+    banner.setAttribute('hidden', 'true');
+    if (overlay) overlay.setAttribute('hidden', 'true');
+    document.body.style.overflow = '';
+  }
 
   const savedConsent = localStorage.getItem('mk-cookie-consent');
   if (!savedConsent) {
-    banner.removeAttribute('hidden');
+    showConsentModal();
   }
 
   const acceptBtn = document.getElementById('cookieAccept');
@@ -147,7 +160,7 @@ function initCookieConsent() {
           page_path: window.location.pathname
         });
       }
-      banner.setAttribute('hidden', 'true');
+      hideConsentModal();
     });
   }
 
@@ -159,13 +172,13 @@ function initCookieConsent() {
           'analytics_storage': 'denied'
         });
       }
-      banner.setAttribute('hidden', 'true');
+      hideConsentModal();
     });
   }
 
   if (settingsBtn) {
     settingsBtn.addEventListener('click', () => {
-      banner.removeAttribute('hidden');
+      showConsentModal();
     });
   }
 }

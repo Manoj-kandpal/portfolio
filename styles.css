@@ -378,7 +378,27 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
   .nav-toggle { display: block; }
 }
 
-/* ============ COOKIE CONSENT BANNER ============ */
+/* ============ COOKIE CONSENT BANNER & BACKDROP ============ */
+.cookie-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9998;
+  animation: cookieFadeIn 0.3s ease;
+}
+.cookie-overlay[hidden] {
+  display: none !important;
+}
+@keyframes cookieFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .cookie-banner {
   position: fixed;
   bottom: 24px;
