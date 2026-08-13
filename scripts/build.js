@@ -440,21 +440,37 @@ async function pingIndexNow() {
     ]
   });
 
-  const req = https.request('https://api.indexnow.org/indexnow', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Content-Length': Buffer.byteLength(payload)
-    }
-  }, (res) => {
-    console.log(`⚡ IndexNow ping submitted (HTTP ${res.statusCode}) — Bing & DuckDuckGo notified for instant indexing!`);
-  });
+  return new Promise((resolve) => {
+    const req = https.request('https://api.indexnow.org/indexnow', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(payload)
+      }
+    }, (res) => {
+      res.resume();
+      console.log(`⚡ IndexNow ping submitted (HTTP ${res.statusCode}) — Bing & DuckDuckGo notified for instant indexing!`);
+      resolve();
+    });
 
-  req.on('error', () => { /* Silent fallback if offline */ });
-  req.write(payload);
-  req.end();
+    req.on('error', () => {
+      /* Silent fallback if offline */
+      resolve();
+    });
+
+    req.setTimeout(5000, () => {
+      req.destroy();
+      resolve();
+    });
+
+    req.write(payload);
+    req.end();
+  });
 }
 
-pingIndexNow();
+async function runBuild() {
+  await pingIndexNow();
+  console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, robots.txt, llms.txt, & IndexNow key updated.');
+}
 
-console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, robots.txt, llms.txt, & IndexNow key updated.');
+runBuild();
