@@ -1,0 +1,54 @@
+# Manoj Kandpal — Full Stack Software Engineer
+
+> Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end — from JavaScript/TypeScript frontends (React, Nuxt.js, Vue) to Java and Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale.
+
+## Summary & Contact
+- **Name**: Manoj Kandpal
+- **Title**: Full Stack Software Engineer
+- **Location**: Bengaluru, Karnataka, India (Hometown: Haridwar, Uttarakhand, India)
+- **Education**: Bachelor of Engineering (B.E.) in Computer Science & Engineering, RNS Institute of Technology (RNSIT), Bengaluru (CGPA: 9.21 / 10)
+- **Email**: manojkandpal.official@gmail.com
+- **Phone**: +91-7248043509
+- **Links**: [LinkedIn](https://linkedin.com/in/m-kandpal) | [GitHub](https://github.com/Manoj-kandpal) | [Portfolio](https://manoj-kandpal.github.io/portfolio)
+
+## Core Technical Skills
+- **Languages**: Java, JavaScript, TypeScript, Python (Basic)
+- **Frontend**: ReactJS, NextJS, NuxtJS, VueJS, Vanilla JS, HTML5, CSS3, SCSS
+- **Backend & APIs**: Spring Boot, NodeJS, REST APIs, Microservices, Kafka, Apigee API Gateway, OpenAPI/Swagger
+- **Databases**: PostgreSQL, MySQL
+- **Cloud, DevOps & Testing**: Azure, Docker, Kubernetes, Git, GitHub Actions, CI/CD, Agile/Scrum, Grafana, Cypress, Mockito
+- **Engineering Fundamentals**: Data Structures & Algorithms (DSA), System Design, LLD, HLD, OOP
+
+## Professional Experience
+### Software Engineer — A.P. Moller – Maersk (Sep 2025 – Present | Bengaluru, Karnataka)
+- Design and build new Java and Spring Boot microservices and REST APIs for feature rollouts, integrated with the Next.js frontend on Azure, optimizing data serialization and caching to improve UI responsiveness.
+- Migrated legacy Spring Boot 2.x microservices to modern releases, enhancing security posture, startup speed, and API reliability.
+- Created reusable Sitecore CMS components with Vanilla JavaScript and built Nuxt.js enterprise web apps used by 10,000+ daily global users.
+- Modernized Maersk.com's Integrated Global Navigation frontend, delivering a highly scalable and intuitive UI.
+- Lead the Ask Maersk AI Web Component, maintaining a 30–35% CTR while consistently lowering support case creation.
+- Participate actively in daily Scrum sprints, performing peer code reviews and mentoring team members.
+- Designed and executed targeted A/B experiments to optimize user workflows, driving a 10–15% boost in overall engagement.
+- Implemented behavioral analytics by instrumenting GTM dataLayer events and building dashboards to map user traffic.
+
+### Associate Software Engineer — A.P. Moller – Maersk (Mar 2022 – Aug 2025 | Bengaluru, Karnataka)
+- Worked as a full stack developer on the core Case Management platform — built and maintained backend microservices using Java, Spring Boot, and Azure cloud-native architectures, and developed the Next.js frontend.
+- Participated actively in Agile/Scrum processes including sprint planning, estimation, retrospectives, and daily pull request code reviews using Git.
+- Optimized frontend and backend performance across legacy modules to improve UI responsiveness and API efficiency.
+- Deployed semantic, SEO-friendly frontend architecture across production pages to maximize search engine discoverability.
+- Migrated manual testing to Cypress, reducing regression testing efforts by 80–90%.
+
+## Certifications
+- **Algorithmic Toolbox** (UC San Diego): https://coursera.org/verify/SXPU9566KL2J
+- **Python 3 Programming Specialization** (University of Michigan): https://coursera.org/verify/specialization/YCNU37CH6EUE
+- **HTML, CSS and JavaScript for Web Developers** (Johns Hopkins University): https://coursera.org/verify/Y4ZVB7RNGKL9
+- **Python for Data Science** (IBM): https://courses.cognitiveclass.ai/certificates/fca2b8a43015432caad55427f1a37795
+
+## Achievements
+- **Spot Awards (x3)** (A.P. Moller – Maersk): Recognized with 3 Spot Awards for technical excellence, ownership, and impactful delivery on global enterprise platforms.
+- **Infosys Certified Software Programmer** (Infosys): Cleared the Infosys Certified Software Programmer assessment.
+- **5 Star Problem Solving & Python** (HackerRank): Earned 5-Star badges and verified certifications in Problem Solving and Python tracks.
+
+## Personal Background & Interests
+- **Hometown**: Born and raised in Haridwar, Uttarakhand.
+- **Schooling**: Completed schooling at Gayatri Vidyapeeth, Shantikunj, Haridwar.
+- **Hobbies**: Playing cricket 🏏, Coding and building creative software projects 💻, Going on long walks with headphones on 🎧🚶‍♂️

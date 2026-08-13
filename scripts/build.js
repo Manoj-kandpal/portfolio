@@ -344,17 +344,83 @@ if (fs.existsSync(sitemapPath)) {
   fs.writeFileSync(sitemapPath, sitemap, 'utf8');
 }
 
-// Update robots.txt timestamp header
+// Update robots.txt timestamp header & AI bot permissions
 const robotsPath = path.join(__dirname, '../robots.txt');
 if (fs.existsSync(robotsPath)) {
-  let robots = fs.readFileSync(robotsPath, 'utf8');
   const nowISO = new Date().toISOString();
-  if (robots.includes('# Last updated:')) {
-    robots = robots.replace(/# Last updated: .*/, `# Last updated: ${nowISO}`);
-  } else {
-    robots = `# Last updated: ${nowISO}\n` + robots;
-  }
-  fs.writeFileSync(robotsPath, robots, 'utf8');
+  const robotsContent = `# Last updated: ${nowISO}
+User-agent: *
+Allow: /
+
+# AEO / AI Engine Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://manoj-kandpal.github.io/portfolio/sitemap.xml
+`;
+  fs.writeFileSync(robotsPath, robotsContent, 'utf8');
 }
 
-console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, & robots.txt updated.');
+// Generate llms.txt standard for AEO (Answer Engine Optimization)
+const llmsPath = path.join(__dirname, '../llms.txt');
+if (fs.existsSync(kbPath)) {
+  const kbData = JSON.parse(fs.readFileSync(kbPath, 'utf8'));
+  const p = kbData.profile || {};
+  const c = kbData.contact || {};
+  const edu = kbData.education || {};
+  const expList = kbData.experience || [];
+  const certs = kbData.certifications || [];
+  const ach = kbData.achievements || [];
+  const skills = kbData.skills || {};
+  const pb = p.personalBackground || {};
+
+  const llmsContent = `# ${p.name || 'Manoj Kandpal'} — ${p.title || 'Full Stack Software Engineer'}
+
+> ${p.summary || ''}
+
+## Summary & Contact
+- **Name**: ${p.name}
+- **Title**: ${p.title}
+- **Location**: ${p.location} (Hometown: ${p.hometown || 'Haridwar, Uttarakhand'})
+- **Education**: ${edu.degree}, ${edu.institution} (CGPA: ${edu.cgpa})
+- **Email**: ${c.email}
+- **Phone**: ${c.phone}
+- **Links**: [LinkedIn](${c.linkedin}) | [GitHub](${c.github}) | [Portfolio](${c.portfolio})
+
+## Core Technical Skills
+- **Languages**: ${(skills.languages || []).join(', ')}
+- **Frontend**: ${(skills.frontend || []).join(', ')}
+- **Backend & APIs**: ${(skills.backendAndApis || []).join(', ')}
+- **Databases**: ${(skills.databases || []).join(', ')}
+- **Cloud, DevOps & Testing**: ${(skills.cloudDevOpsTesting || []).join(', ')}
+- **Engineering Fundamentals**: ${(skills.engineeringFundamentals || []).join(', ')}
+
+## Professional Experience
+${expList.map(job => `### ${job.role} — ${job.company} (${job.period} | ${job.location})
+${(job.highlights || []).map(h => `- ${h}`).join('\n')}`).join('\n\n')}
+
+## Certifications
+${certs.map(cert => `- **${cert.title}** (${cert.issuer}): ${cert.verificationUrl}`).join('\n')}
+
+## Achievements
+${ach.map(item => `- **${item.title}** (${item.issuer}): ${item.description || ''}`).join('\n')}
+
+## Personal Background & Interests
+- **Hometown**: ${pb.origin || 'Haridwar, Uttarakhand'}
+- **Schooling**: ${pb.schooling || 'Gayatri Vidyapeeth, Shantikunj, Haridwar'}
+- **Hobbies**: ${(pb.hobbies || []).join(', ')}
+`;
+
+  fs.writeFileSync(llmsPath, llmsContent, 'utf8');
+}
+
+console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, robots.txt, & llms.txt updated.');

@@ -1,5 +1,18 @@
-# Last updated: 2026-08-13T17:52:20.979Z
+# Last updated: 2026-08-13T17:54:59.801Z
 User-agent: *
+Allow: /
+
+# AEO / AI Engine Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://manoj-kandpal.github.io/portfolio/sitemap.xml
