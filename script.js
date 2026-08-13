@@ -100,9 +100,14 @@ function initAnalyticsEvents() {
   // Track Contact Links (Email / Phone)
   document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(el => {
     el.addEventListener('click', () => {
-      const type = el.href.startsWith('mailto:') ? 'email' : 'phone';
+      const isEmail = el.href.startsWith('mailto:');
+      const eventName = isEmail ? 'email_click' : 'phone_click';
+      trackEvent(eventName, {
+        contact_type: isEmail ? 'email' : 'phone',
+        contact_value: el.href
+      });
       trackEvent('contact_click', {
-        contact_type: type,
+        contact_type: isEmail ? 'email' : 'phone',
         contact_value: el.href
       });
     });
@@ -111,9 +116,14 @@ function initAnalyticsEvents() {
   // Track Social Links (LinkedIn / GitHub)
   document.querySelectorAll('a[href*="linkedin.com"], a[href*="github.com"]').forEach(el => {
     el.addEventListener('click', () => {
-      const platform = el.href.includes('linkedin') ? 'linkedin' : 'github';
+      const isLinkedIn = el.href.includes('linkedin');
+      const eventName = isLinkedIn ? 'linkedin_click' : 'github_click';
+      trackEvent(eventName, {
+        platform: isLinkedIn ? 'linkedin' : 'github',
+        url: el.href
+      });
       trackEvent('social_click', {
-        platform: platform,
+        platform: isLinkedIn ? 'linkedin' : 'github',
         url: el.href
       });
     });
