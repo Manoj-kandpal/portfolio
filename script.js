@@ -77,6 +77,10 @@ function initProfileImgFallback() {
 // ---------- Custom GA4 Event Tracking ----------
 function initAnalyticsEvents() {
   function trackEvent(name, params) {
+    // Only track analytics events if user explicitly accepted cookies
+    const savedConsent = localStorage.getItem('mk-cookie-consent');
+    if (savedConsent !== 'granted') return;
+
     if (typeof window.gtag === 'function') {
       window.gtag('event', name, params);
     }
@@ -128,6 +132,7 @@ function initCookieConsent() {
 
   const acceptBtn = document.getElementById('cookieAccept');
   const declineBtn = document.getElementById('cookieDecline');
+  const settingsBtn = document.getElementById('cookieSettingsBtn');
 
   if (acceptBtn) {
     acceptBtn.addEventListener('click', () => {
@@ -150,6 +155,12 @@ function initCookieConsent() {
         });
       }
       banner.setAttribute('hidden', 'true');
+    });
+  }
+
+  if (settingsBtn) {
+    settingsBtn.addEventListener('click', () => {
+      banner.removeAttribute('hidden');
     });
   }
 }

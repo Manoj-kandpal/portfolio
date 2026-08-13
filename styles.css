@@ -334,6 +334,21 @@ html[data-theme="dark"] .theme-toggle .sun { display: block; }
 .contact-links { display: flex; justify-content: center; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
 
 footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(--ink-muted); font-family: var(--font-mono); }
+.footer-sep { margin: 0 8px; opacity: 0.5; }
+.cookie-settings-btn {
+  background: none;
+  border: none;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+}
+.cookie-settings-btn:hover {
+  color: var(--accent);
+}
 
 @media (max-width: 860px) {
   .about-grid, .split-grid, .skills-grid, .projects-grid, .cert-grid { grid-template-columns: 1fr; }
