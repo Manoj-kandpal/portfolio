@@ -225,7 +225,7 @@ function initCopyEmailToast() {
       if (navigator.clipboard && email) {
         navigator.clipboard.writeText(email).then(() => {
           showToast('📋 Email copied to clipboard!');
-        }).catch(() => {});
+        }).catch(() => { });
       }
     });
   });

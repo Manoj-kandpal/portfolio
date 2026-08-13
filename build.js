@@ -23,6 +23,7 @@ function renderHero(data) {
   if (!data.profile) return '';
   const p = data.profile;
   return `
+    ${p.status ? `<div class="status-pill reveal in"><span>${p.status}</span></div>` : ''}
     <p class="eyebrow reveal in">${p.eyebrow}</p>
     <h1 class="reveal in">${p.heroHeadline}<span class="role">${p.heroRole}</span></h1>
     <p class="hero-sub reveal in">${p.heroSub}</p>

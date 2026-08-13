@@ -87,10 +87,16 @@
 }
 </script>
 
+<!-- Optimized Font Preloading (Non-render-blocking) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</noscript>
 
+<link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -127,7 +133,8 @@
   <section class="hero">
     <div class="hero-inner" id="heroContent">
 <!-- HERO_START -->
-<p class="eyebrow reveal in">Full Stack Software Engineer — Bengaluru, India</p>
+<div class="status-pill reveal in"><span>🟢 Available for Full Stack Software Engineer roles</span></div>
+    <p class="eyebrow reveal in">Full Stack Software Engineer — Bengaluru, India</p>
     <h1 class="reveal in">Manoj Kandpal<span class="role">Building enterprise platforms that ship, from API to interface.</span></h1>
     <p class="hero-sub reveal in">4+ years engineering web applications end to end — <strong>Java & Spring Boot</strong> microservices on Azure, paired with <strong>React, Next.js & Nuxt.js</strong> frontends used by <strong>10,000+ daily users</strong> at A.P. Moller – Maersk.</p>
     <div class="hero-cta reveal in">
@@ -607,6 +614,6 @@
 <!-- Toast Notification -->
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
