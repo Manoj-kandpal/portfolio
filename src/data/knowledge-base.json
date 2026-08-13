@@ -2,10 +2,21 @@
   "profile": {
     "name": "Manoj Kandpal",
     "title": "Full Stack Software Engineer",
-    "location": "Bengaluru, India",
+    "location": "Bengaluru, Karnataka, India",
+    "hometown": "Haridwar, Uttarakhand, India",
     "phone": "+91-7248043509",
     "email": "manojkandpal.official@gmail.com",
-    "summary": "Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end — from JavaScript/TypeScript frontends (React, Nuxt.js, Vue) to Java and Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale."
+    "summary": "Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end — from JavaScript/TypeScript frontends (React, Nuxt.js, Vue) to Java and Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale.",
+    "personalBackground": {
+      "origin": "Born and raised in Haridwar, Uttarakhand.",
+      "schooling": "Completed schooling at Gayatri Vidyapeeth, Shantikunj, Haridwar.",
+      "higherEducation": "Moved to Bengaluru for higher studies and completed Bachelor of Engineering (B.E.) in Computer Science at RNSIT.",
+      "hobbies": [
+        "Playing cricket 🏏",
+        "Coding and building creative software projects 💻",
+        "Going on long walks with headphones on 🎧🚶‍♂️"
+      ]
+    }
   },
   "contact": {
     "email": "manojkandpal.official@gmail.com",
@@ -15,21 +26,54 @@
     "portfolio": "https://manoj-kandpal.github.io/portfolio"
   },
   "education": {
-    "degree": "Bachelor of Engineering (B.E.) in Computer Science",
+    "degree": "Bachelor of Engineering (B.E.) in Computer Science & Engineering",
     "institution": "RNS Institute of Technology (RNSIT), Bengaluru",
+    "schooling": "Gayatri Vidyapeeth, Shantikunj, Haridwar, Uttarakhand",
     "graduated": "Jul 2022",
     "cgpa": "9.21 / 10"
   },
   "certifications": [
-    "Algorithmic Toolbox — UC San Diego",
-    "Python 3 Programming Specialization — University of Michigan",
-    "HTML, CSS and JavaScript for Web Developers — Johns Hopkins University",
-    "Python for Data Science — IBM"
+    {
+      "title": "Algorithmic Toolbox",
+      "issuer": "UC San Diego",
+      "verificationUrl": "https://coursera.org/verify/SXPU9566KL2J"
+    },
+    {
+      "title": "Python 3 Programming Specialization",
+      "issuer": "University of Michigan",
+      "verificationUrl": "https://coursera.org/verify/specialization/YCNU37CH6EUE"
+    },
+    {
+      "title": "HTML, CSS and JavaScript for Web Developers",
+      "issuer": "Johns Hopkins University",
+      "verificationUrl": "https://coursera.org/verify/Y4ZVB7RNGKL9"
+    },
+    {
+      "title": "Python for Data Science",
+      "issuer": "IBM",
+      "verificationUrl": "https://courses.cognitiveclass.ai/certificates/fca2b8a43015432caad55427f1a37795"
+    }
   ],
   "achievements": [
-    "Spot Awards (x3) — A.P. Moller – Maersk",
-    "Infosys Certified Software Programmer",
-    "5 Star Problem Solving & Python — HackerRank"
+    {
+      "title": "Spot Awards (x3)",
+      "issuer": "A.P. Moller – Maersk",
+      "description": "Recognized with 3 Spot Awards for technical excellence, ownership, and impactful delivery on global enterprise platforms."
+    },
+    {
+      "title": "Infosys Certified Software Programmer",
+      "issuer": "Infosys",
+      "description": "Cleared the Infosys Certified Software Programmer assessment."
+    },
+    {
+      "title": "5 Star Problem Solving & Python",
+      "issuer": "HackerRank",
+      "description": "Earned 5-Star badges and verified certifications in Problem Solving and Python tracks.",
+      "verificationUrls": {
+        "problemSolving": "https://www.hackerrank.com/certificates/13dd11ff06f5",
+        "python": "https://www.hackerrank.com/certificates/11c0b1cd54f3"
+      }
+    }
   ],
   "experience": [
     {
@@ -123,21 +167,23 @@
       "name": "Portfolio Website",
       "description": "Co-engineered with Google Antigravity AI using SSG, GA4 Consent Mode v2, a Cloudflare AI Proxy, and technical SEO.",
       "links": {
-        "site": "https://manoj-kandpal.github.io/portfolio"
+        "site": "https://manoj-kandpal.github.io/portfolio",
+        "github": "https://github.com/Manoj-kandpal/portfolio"
       }
     },
     {
       "name": "Website Navigation",
       "description": "Engineered a fully responsive, template-based website navigation bar built with JavaScript, HTML, and SCSS. Built dynamic menu states and smooth UI transitions, using Webpack for automated asset management.",
       "links": {
-        "github": "https://github.com/Manoj-kandpal"
+        "site": "https://manoj-kandpal.github.io/Header/",
+        "github": "https://github.com/Manoj-kandpal/Header"
       }
     },
     {
       "name": "Article Hub",
       "description": "Scalable RESTful backend built with Java, Spring Boot, and PostgreSQL. Implemented JWT authentication and role-based access control (RBAC), with OpenAPI/Swagger specs and automated unit testing.",
       "links": {
-        "github": "https://github.com/Manoj-kandpal"
+        "github": "https://github.com/Manoj-kandpal/Article-hub-backend"
       }
     }
   ]
