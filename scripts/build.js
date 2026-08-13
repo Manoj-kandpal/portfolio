@@ -423,4 +423,38 @@ ${ach.map(item => `- **${item.title}** (${item.issuer}): ${item.description || '
   fs.writeFileSync(llmsPath, llmsContent, 'utf8');
 }
 
-console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, robots.txt, & llms.txt updated.');
+// Generate IndexNow verification key file & ping Bing/DuckDuckGo for instant indexing
+const indexNowKey = '2bf6bc6102cbc0d4791e';
+const indexNowPath = path.join(__dirname, `../${indexNowKey}.txt`);
+fs.writeFileSync(indexNowPath, indexNowKey, 'utf8');
+
+async function pingIndexNow() {
+  const https = require('https');
+  const payload = JSON.stringify({
+    host: 'manoj-kandpal.github.io',
+    key: indexNowKey,
+    keyLocation: `https://manoj-kandpal.github.io/portfolio/${indexNowKey}.txt`,
+    urlList: [
+      'https://manoj-kandpal.github.io/portfolio/',
+      'https://manoj-kandpal.github.io/portfolio/index.html'
+    ]
+  });
+
+  const req = https.request('https://api.indexnow.org/indexnow', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': Buffer.byteLength(payload)
+    }
+  }, (res) => {
+    console.log(`⚡ IndexNow ping submitted (HTTP ${res.statusCode}) — Bing & DuckDuckGo notified for instant indexing!`);
+  });
+
+  req.on('error', () => { /* Silent fallback if offline */ });
+  req.write(payload);
+  req.end();
+}
+
+pingIndexNow();
+
+console.log('✅ SSG build complete! Pre-rendered index.html, sitemap.xml, robots.txt, llms.txt, & IndexNow key updated.');
