@@ -74,23 +74,22 @@ function initProfileImgFallback() {
   }
 }
 
-// ---------- Custom GA4 & dataLayer Event Tracking ----------
+// ---------- Custom GA4 Event Tracking ----------
 function initAnalyticsEvents() {
+  function trackEvent(name, params) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', name, params);
+    }
+  }
+
   // Track Resume Downloads
   document.querySelectorAll('a[href*="resume"]').forEach(el => {
     el.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'download_resume', {
-          event_category: 'engagement',
-          event_label: 'Manoj Kandpal Resume PDF'
-        });
-      }
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          event: 'download_resume',
-          file_name: 'Manoj_kandpal_resume.pdf'
-        });
-      }
+      trackEvent('download_resume', {
+        event_category: 'engagement',
+        event_label: 'Manoj Kandpal Resume PDF',
+        file_name: 'Manoj_kandpal_resume.pdf'
+      });
     });
   });
 
@@ -98,18 +97,10 @@ function initAnalyticsEvents() {
   document.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]').forEach(el => {
     el.addEventListener('click', () => {
       const type = el.href.startsWith('mailto:') ? 'email' : 'phone';
-      if (typeof gtag === 'function') {
-        gtag('event', 'contact_click', {
-          contact_type: type,
-          contact_value: el.href
-        });
-      }
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          event: 'contact_click',
-          contact_type: type
-        });
-      }
+      trackEvent('contact_click', {
+        contact_type: type,
+        contact_value: el.href
+      });
     });
   });
 
@@ -117,18 +108,10 @@ function initAnalyticsEvents() {
   document.querySelectorAll('a[href*="linkedin.com"], a[href*="github.com"]').forEach(el => {
     el.addEventListener('click', () => {
       const platform = el.href.includes('linkedin') ? 'linkedin' : 'github';
-      if (typeof gtag === 'function') {
-        gtag('event', 'social_click', {
-          platform: platform,
-          url: el.href
-        });
-      }
-      if (window.dataLayer) {
-        window.dataLayer.push({
-          event: 'social_click',
-          platform: platform
-        });
-      }
+      trackEvent('social_click', {
+        platform: platform,
+        url: el.href
+      });
     });
   });
 }
