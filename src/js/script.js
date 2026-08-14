@@ -419,8 +419,22 @@ ${JSON.stringify(kbData, null, 2)}`;
         if (!window.location.hostname.includes('manoj-kandpal.github.io')) {
           reqHeaders['X-Portfolio-Dev-Secret'] = 'mk-dev-secret-local';
         }
-        if (typeof turnstile !== 'undefined') {
-          const turnstileToken = turnstile.getResponse();
+        if (window.location.protocol.startsWith('http') && typeof turnstile !== 'undefined') {
+          let turnstileToken = turnstile.getResponse();
+          // Poll briefly up to 1.5s if Turnstile token is still generating in background
+          if (!turnstileToken) {
+            turnstileToken = await new Promise((resolve) => {
+              let attempts = 0;
+              const interval = setInterval(() => {
+                attempts++;
+                const tok = turnstile.getResponse();
+                if (tok || attempts >= 15) {
+                  clearInterval(interval);
+                  resolve(tok || '');
+                }
+              }, 100);
+            });
+          }
           if (turnstileToken) {
             reqHeaders['cf-turnstile-response'] = turnstileToken;
           }
@@ -444,7 +458,11 @@ ${JSON.stringify(kbData, null, 2)}`;
         return generateFallbackResponse(userQuery);
       }
 
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        console.error(`Gemini AI Proxy Error (HTTP ${res.status}):`, errData);
+        throw new Error(`HTTP ${res.status}: ${errData.error || res.statusText}`);
+      }
       const data = await res.json();
 
       // Support both Interactions API format and generateContent format
