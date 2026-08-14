@@ -290,12 +290,23 @@ function initAIChatWidget() {
     }
   }
 
+  function loadMarkedOnDemand() {
+    if (typeof window.marked === 'undefined' && !document.getElementById('marked-script')) {
+      const script = document.createElement('script');
+      script.id = 'marked-script';
+      script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }
+
   function toggleWindow() {
     const isHidden = chatWindow.hasAttribute('hidden');
     if (isHidden) {
       chatWindow.removeAttribute('hidden');
       input.focus();
       loadTurnstileOnDemand();
+      loadMarkedOnDemand();
     } else {
       chatWindow.setAttribute('hidden', 'true');
     }
