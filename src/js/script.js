@@ -419,11 +419,20 @@ ${JSON.stringify(kbData, null, 2)}`;
         if (!window.location.hostname.includes('manoj-kandpal.github.io')) {
           reqHeaders['X-Portfolio-Dev-Secret'] = 'mk-dev-secret-local';
         }
+        if (typeof turnstile !== 'undefined') {
+          const turnstileToken = turnstile.getResponse();
+          if (turnstileToken) {
+            reqHeaders['cf-turnstile-response'] = turnstileToken;
+          }
+        }
         res = await fetch(proxyUrl, {
           method: 'POST',
           headers: reqHeaders,
           body: JSON.stringify(payload)
         });
+        if (typeof turnstile !== 'undefined') {
+          try { turnstile.reset(); } catch (e) {}
+        }
       } else if (apiKey) {
         // Option 2: Direct Gemini API Call
         res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`, {
