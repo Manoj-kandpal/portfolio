@@ -268,11 +268,34 @@ function initAIChatWidget() {
 
   if (!toggle || !chatWindow || !form || !input || !messagesContainer) return;
 
+  function loadTurnstileOnDemand() {
+    if (!window.location.protocol.startsWith('http')) return;
+
+    let container = document.getElementById('turnstileWrapper');
+    if (!container) {
+      container = document.createElement('div');
+      container.id = 'turnstileWrapper';
+      container.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden;opacity:0;pointer-events:none;';
+      container.innerHTML = '<div class="cf-turnstile" data-sitekey="0x4AAAAAAEPyGx_6TKaYFa0b" data-size="compact" data-theme="dark"></div>';
+      chatWindow.appendChild(container);
+    }
+
+    if (typeof turnstile === 'undefined' && !document.getElementById('turnstile-script')) {
+      const tsScript = document.createElement('script');
+      tsScript.id = 'turnstile-script';
+      tsScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      tsScript.async = true;
+      tsScript.defer = true;
+      document.head.appendChild(tsScript);
+    }
+  }
+
   function toggleWindow() {
     const isHidden = chatWindow.hasAttribute('hidden');
     if (isHidden) {
       chatWindow.removeAttribute('hidden');
       input.focus();
+      loadTurnstileOnDemand();
     } else {
       chatWindow.setAttribute('hidden', 'true');
     }

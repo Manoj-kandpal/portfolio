@@ -31,16 +31,6 @@
   gtag('config', 'G-BNMFMG4EMJ');
 </script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<!-- Cloudflare Turnstile Bot Protection (Loaded on HTTP/HTTPS only) -->
-<script>
-  if (window.location.protocol.startsWith('http')) {
-    const tsScript = document.createElement('script');
-    tsScript.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    tsScript.async = true;
-    tsScript.defer = true;
-    document.head.appendChild(tsScript);
-  }
-</script>
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -662,9 +652,6 @@
       </div>
     </div>
 
-    <div style="position: absolute; width: 0; height: 0; overflow: hidden; opacity: 0; pointer-events: none;" aria-hidden="true">
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEPyGx_6TKaYFa0b" data-size="compact" data-theme="dark"></div>
-    </div>
     <form id="aiChatForm" class="ai-chat-input-form">
       <input type="text" id="aiChatInput" placeholder="Ask about Manoj's experience or skills..." autocomplete="off" required>
       <button type="submit" class="ai-chat-send" aria-label="Send message">
