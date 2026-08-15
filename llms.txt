@@ -16,7 +16,7 @@
 - **Frontend**: ReactJS, NextJS, NuxtJS, VueJS, Vanilla JS, HTML5, CSS3, SCSS
 - **Backend & APIs**: Spring Boot, NodeJS, REST APIs, Microservices, Kafka, Apigee API Gateway, OpenAPI/Swagger
 - **Databases**: PostgreSQL, MySQL
-- **Cloud, DevOps & Testing**: Azure, Docker, Kubernetes, Git, GitHub Actions, CI/CD, Agile/Scrum, Grafana, Cypress, Mockito
+- **Cloud, DevOps & Testing**: Azure, Docker, Kubernetes, Git, GitHub Actions, Google Tag Manager (GTM), GA4 Analytics, CI/CD, Agile/Scrum, Grafana, Cypress, Mockito
 - **Engineering Fundamentals**: Data Structures & Algorithms (DSA), System Design, LLD, HLD, OOP
 
 ## Professional Experience

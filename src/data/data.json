@@ -118,12 +118,14 @@
         ]
       },
       {
-        "name": "Cloud, DevOps & Testing",
+        "name": "Cloud, DevOps & Analytics",
         "items": [
           "Azure",
           "Docker",
           "Kubernetes",
           "GitHub Actions",
+          "Google Tag Manager (GTM)",
+          "GA4 Analytics",
           "Grafana",
           "Cypress",
           "Mockito"
@@ -157,15 +159,17 @@
     "subtitle": "Personal builds that dig into frontend craft and backend architecture.",
     "items": [
       {
-        "title": "Portfolio Website",
-        "description": "A lightweight, high-performance developer portfolio co-engineered with Google Antigravity AI pair programming. Built with Static Site Generation (SSG), pre-rendered semantic HTML, custom GA4 analytics event tracking with Consent Mode v2, and Google Search Console SEO optimization.",
+        "title": "Portfolio Website & AI Assistant",
+        "description": "A high-performance developer portfolio and live AI Assistant co-engineered with Google Antigravity AI. Features Static Site Generation (SSG), a 100% free Cloudflare Worker AI Proxy calling Google Gemini LLM (Interactions API), touch-draggable UI, marked.js Markdown rendering, AEO (llms.txt), IndexNow instant search indexing, and GDPR-compliant GA4 analytics with Consent Mode v2.",
         "tags": [
-          "Google Antigravity",
-          "JavaScript",
+          "Google Antigravity AI",
+          "Google Gemini LLM",
+          "Cloudflare Workers",
+          "JavaScript (ES6+)",
           "Node.js",
           "SSG",
-          "HTML5",
-          "CSS3",
+          "AEO (llms.txt)",
+          "Analytics",
           "SEO"
         ],
         "github": "https://github.com/Manoj-kandpal/portfolio",

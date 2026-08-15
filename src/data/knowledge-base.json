@@ -147,6 +147,8 @@
       "Kubernetes",
       "Git",
       "GitHub Actions",
+      "Google Tag Manager (GTM)",
+      "GA4 Analytics",
       "CI/CD",
       "Agile/Scrum",
       "Grafana",
@@ -169,8 +171,8 @@
   },
   "projects": [
     {
-      "name": "Portfolio Website",
-      "description": "Co-engineered with Google Antigravity AI using SSG, GA4 Consent Mode v2, a Cloudflare AI Proxy, and technical SEO.",
+      "name": "Portfolio Website & AI Assistant",
+      "description": "Co-engineered with Google Antigravity AI using SSG, a 100% free Cloudflare Worker AI Proxy calling Google Gemini LLM (Interactions API), AEO (llms.txt), IndexNow instant search indexing, GA4 Consent Mode v2, and technical SEO.",
       "links": {
         "site": "https://manoj-kandpal.github.io/portfolio",
         "github": "https://github.com/Manoj-kandpal/portfolio"
