@@ -160,17 +160,15 @@
     "items": [
       {
         "title": "Portfolio Website & AI Assistant",
-        "description": "A high-performance developer portfolio and live AI Assistant co-engineered with Google Antigravity AI. Features Static Site Generation (SSG), a 100% free Cloudflare Worker AI Proxy calling Google Gemini LLM (Interactions API), touch-draggable UI, marked.js Markdown rendering, AEO (llms.txt), IndexNow instant search indexing, and GDPR-compliant GA4 analytics with Consent Mode v2.",
+        "description": "A high-performance developer portfolio co-engineered with Google Antigravity AI, featuring a live Gemini LLM assistant, SSG pre-rendering, and SEO & AEO optimization.",
         "tags": [
-          "Google Antigravity AI",
+          "Google Antigravity",
           "Google Gemini LLM",
           "Cloudflare Workers",
-          "JavaScript (ES6+)",
-          "Node.js",
+          "JavaScript",
           "SSG",
-          "AEO (llms.txt)",
-          "Analytics",
-          "SEO"
+          "AEO & SEO",
+          "Analytics"
         ],
         "github": "https://github.com/Manoj-kandpal/portfolio",
         "demo": "https://manoj-kandpal.github.io/portfolio/"

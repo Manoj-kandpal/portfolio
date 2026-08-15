@@ -172,7 +172,7 @@
   "projects": [
     {
       "name": "Portfolio Website & AI Assistant",
-      "description": "Co-engineered with Google Antigravity AI using SSG, a 100% free Cloudflare Worker AI Proxy calling Google Gemini LLM (Interactions API), AEO (llms.txt), IndexNow instant search indexing, GA4 Consent Mode v2, and technical SEO.",
+      "description": "Co-engineered with Google Antigravity AI, featuring a live Gemini LLM assistant via Cloudflare Worker proxy, SSG pre-rendering, and AEO optimization.",
       "links": {
         "site": "https://manoj-kandpal.github.io/portfolio",
         "github": "https://github.com/Manoj-kandpal/portfolio"
