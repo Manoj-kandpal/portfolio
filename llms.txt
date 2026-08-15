@@ -42,6 +42,7 @@
 - **Python 3 Programming Specialization** (University of Michigan): https://coursera.org/verify/specialization/YCNU37CH6EUE
 - **HTML, CSS and JavaScript for Web Developers** (Johns Hopkins University): https://coursera.org/verify/Y4ZVB7RNGKL9
 - **Python for Data Science** (IBM): https://courses.cognitiveclass.ai/certificates/fca2b8a43015432caad55427f1a37795
+- **React (Top 10%)** (TestDome): https://www.testdome.com/certificates/3c815939e3494e81b82711c399b8b8bf
 
 ## Achievements
 - **Spot Awards (x3)** (A.P. Moller – Maersk): Recognized with 3 Spot Awards for technical excellence, ownership, and impactful delivery on global enterprise platforms.
