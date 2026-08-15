@@ -75,21 +75,21 @@ function initProfileImgFallback() {
 }
 
 // ---------- Custom GA4 Event Tracking ----------
-function initAnalyticsEvents() {
-  function trackEvent(name, params) {
-    // Only track analytics events if user explicitly accepted cookies
-    const savedConsent = localStorage.getItem('mk-cookie-consent');
-    if (savedConsent !== 'granted') return;
+function trackAnalyticsEvent(name, params) {
+  // GDPR Guard: Only track analytics events if user explicitly accepted cookies
+  const savedConsent = localStorage.getItem('mk-cookie-consent');
+  if (savedConsent !== 'granted') return;
 
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', name, params);
-    }
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', name, params);
   }
+}
 
+function initAnalyticsEvents() {
   // Track Resume Downloads
   document.querySelectorAll('a[href*="resume"]').forEach(el => {
     el.addEventListener('click', () => {
-      trackEvent('download_resume', {
+      trackAnalyticsEvent('download_resume', {
         event_category: 'engagement',
         event_label: 'Manoj Kandpal Resume PDF',
         file_name: 'Manoj_kandpal_resume.pdf'
@@ -102,11 +102,11 @@ function initAnalyticsEvents() {
     el.addEventListener('click', () => {
       const isEmail = el.href.startsWith('mailto:');
       const eventName = isEmail ? 'email_click' : 'phone_click';
-      trackEvent(eventName, {
+      trackAnalyticsEvent(eventName, {
         contact_type: isEmail ? 'email' : 'phone',
         contact_value: el.href
       });
-      trackEvent('contact_click', {
+      trackAnalyticsEvent('contact_click', {
         contact_type: isEmail ? 'email' : 'phone',
         contact_value: el.href
       });
@@ -118,11 +118,11 @@ function initAnalyticsEvents() {
     el.addEventListener('click', () => {
       const isLinkedIn = el.href.includes('linkedin');
       const eventName = isLinkedIn ? 'linkedin_click' : 'github_click';
-      trackEvent(eventName, {
+      trackAnalyticsEvent(eventName, {
         platform: isLinkedIn ? 'linkedin' : 'github',
         url: el.href
       });
-      trackEvent('social_click', {
+      trackAnalyticsEvent('social_click', {
         platform: isLinkedIn ? 'linkedin' : 'github',
         url: el.href
       });
@@ -307,8 +307,10 @@ function initAIChatWidget() {
       input.focus();
       loadTurnstileOnDemand();
       loadMarkedOnDemand();
+      trackAnalyticsEvent('ai_chat_toggle', { action: 'open', event_category: 'ai_assistant' });
     } else {
       chatWindow.setAttribute('hidden', 'true');
+      trackAnalyticsEvent('ai_chat_toggle', { action: 'close', event_category: 'ai_assistant' });
     }
   }
 
@@ -380,7 +382,10 @@ function initAIChatWidget() {
     toggleWindow();
   });
 
-  if (closeBtn) closeBtn.addEventListener('click', () => chatWindow.setAttribute('hidden', 'true'));
+  if (closeBtn) closeBtn.addEventListener('click', () => {
+    chatWindow.setAttribute('hidden', 'true');
+    trackAnalyticsEvent('ai_chat_toggle', { action: 'close', event_category: 'ai_assistant' });
+  });
 
   // Markdown Formatter (uses marked.js if available)
   function formatMarkdownText(text) {
@@ -510,9 +515,16 @@ ${JSON.stringify(kbData, null, 2)}`;
         rawText = data.candidates[0].content.parts[0].text;
       }
 
-      return rawText ? formatMarkdownText(rawText) : generateFallbackResponse(userQuery);
+      if (rawText) {
+        trackAnalyticsEvent('ai_chat_response', { status: 'success', event_category: 'ai_assistant' });
+        return formatMarkdownText(rawText);
+      } else {
+        trackAnalyticsEvent('ai_chat_response', { status: 'fallback', event_category: 'ai_assistant' });
+        return generateFallbackResponse(userQuery);
+      }
     } catch (err) {
       console.warn('AI LLM call failed, falling back to knowledge base:', err);
+      trackAnalyticsEvent('ai_chat_response', { status: 'error_fallback', event_category: 'ai_assistant' });
       return generateFallbackResponse(userQuery);
     }
   }
@@ -548,13 +560,25 @@ ${JSON.stringify(kbData, null, 2)}`;
     const val = input.value.trim();
     if (!val) return;
     input.value = '';
+    trackAnalyticsEvent('ai_chat_query', {
+      query_type: 'custom_text',
+      query_length: val.length,
+      event_category: 'ai_assistant'
+    });
     handleUserQuery(val);
   });
 
   document.addEventListener('click', (e) => {
     if (e.target.matches('.chip-btn')) {
       const prompt = e.target.getAttribute('data-prompt');
-      if (prompt) handleUserQuery(prompt);
+      if (prompt) {
+        trackAnalyticsEvent('ai_chat_query', {
+          query_type: 'preset_chip',
+          prompt_label: prompt,
+          event_category: 'ai_assistant'
+        });
+        handleUserQuery(prompt);
+      }
     }
   });
 }
