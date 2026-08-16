@@ -13,11 +13,32 @@
 
 ## Core Technical Skills
 - **Languages**: Java, JavaScript, TypeScript, Python (Basic)
-- **Frontend**: ReactJS, NextJS, NuxtJS, VueJS, Vanilla JS, HTML5, CSS3, SCSS
+- **Frontend**: ReactJS, NextJS, NuxtJS, VueJS, Tailwind CSS, Vanilla JS, HTML5, CSS3, SCSS
 - **Backend & APIs**: Spring Boot, NodeJS, REST APIs, Microservices, Kafka, Apigee API Gateway, OpenAPI/Swagger
 - **Databases**: PostgreSQL, MySQL
 - **Cloud, DevOps & Testing**: Azure, Docker, Kubernetes, Git, GitHub Actions, Google Tag Manager (GTM), GA4 Analytics, CI/CD, Agile/Scrum, Grafana, Cypress, Mockito
 - **Engineering Fundamentals**: Data Structures & Algorithms (DSA), System Design, LLD, HLD, OOP
+
+## Featured Projects
+### Strinza — Developer String Utilities Suite
+- **Description**: Privacy-first, 100% client-side string transformation and analysis platform featuring URL/Base64/HTML encoders, 8-convention string case lab, side-by-side text diff checker, and GDPR consent manager.
+- Engineered 100% client-side computation in V8 JavaScript guaranteeing zero data transmission or server logging for sensitive credentials.
+- Built bidirectional URL, Base64, and HTML encoders alongside an 8-convention string case lab and side-by-side text diff checker.
+- Implemented GDPR-compliant consent manager with opt-in GA4 custom event tracking.
+- Optimized Web Vitals for Lighthouse 95-100 scores via Next.js 14 App Router SSG static export, next/font/google, and ES2022 bundle targeting.
+- **Links**: [site](https://strinza.vercel.app) | [github](https://github.com/Manoj-kandpal/Strinza)
+
+### Portfolio Website & AI Assistant
+- **Description**: Co-engineered with Google Antigravity AI, featuring a live Gemini LLM assistant via Cloudflare Worker proxy, SSG pre-rendering, and AEO optimization.
+- **Links**: [site](https://manoj-kandpal.github.io/portfolio) | [github](https://github.com/Manoj-kandpal/portfolio)
+
+### Website Navigation
+- **Description**: Engineered a fully responsive, template-based website navigation bar built with JavaScript, HTML, and SCSS. Built dynamic menu states and smooth UI transitions, using Webpack for automated asset management.
+- **Links**: [site](https://manoj-kandpal.github.io/Header/) | [github](https://github.com/Manoj-kandpal/Header)
+
+### Article Hub
+- **Description**: Scalable RESTful backend built with Java, Spring Boot, and PostgreSQL. Implemented JWT authentication and role-based access control (RBAC), with OpenAPI/Swagger specs and automated unit testing.
+- **Links**: [github](https://github.com/Manoj-kandpal/Article-hub-backend)
 
 ## Professional Experience
 ### Software Engineer — A.P. Moller – Maersk (Sep 2025 – Present | Bengaluru, Karnataka)

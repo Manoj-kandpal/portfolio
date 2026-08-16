@@ -382,6 +382,7 @@ if (fs.existsSync(kbPath)) {
   const ach = kbData.achievements || [];
   const skills = kbData.skills || {};
   const pb = p.personalBackground || {};
+  const projects = kbData.projects || [];
 
   const llmsContent = `# ${p.name || 'Manoj Kandpal'} — ${p.title || 'Full Stack Software Engineer'}
 
@@ -403,6 +404,11 @@ if (fs.existsSync(kbPath)) {
 - **Databases**: ${(skills.databases || []).join(', ')}
 - **Cloud, DevOps & Testing**: ${(skills.cloudDevOpsTesting || []).join(', ')}
 - **Engineering Fundamentals**: ${(skills.engineeringFundamentals || []).join(', ')}
+
+## Featured Projects
+${projects.map(proj => `### ${proj.name}
+- **Description**: ${proj.description}
+${proj.highlights ? proj.highlights.map(h => `- ${h}`).join('\n') + '\n' : ''}- **Links**: ${proj.links ? Object.entries(proj.links).map(([k, v]) => `[${k}](${v})`).join(' | ') : 'N/A'}`).join('\n\n')}
 
 ## Professional Experience
 ${expList.map(job => `### ${job.role} — ${job.company} (${job.period} | ${job.location})

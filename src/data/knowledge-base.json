@@ -123,6 +123,7 @@
       "NextJS",
       "NuxtJS",
       "VueJS",
+      "Tailwind CSS",
       "Vanilla JS",
       "HTML5",
       "CSS3",
@@ -170,6 +171,20 @@
     ]
   },
   "projects": [
+    {
+      "name": "Strinza — Developer String Utilities Suite",
+      "description": "Privacy-first, 100% client-side string transformation and analysis platform featuring URL/Base64/HTML encoders, 8-convention string case lab, side-by-side text diff checker, and GDPR consent manager.",
+      "highlights": [
+        "Engineered 100% client-side computation in V8 JavaScript guaranteeing zero data transmission or server logging for sensitive credentials.",
+        "Built bidirectional URL, Base64, and HTML encoders alongside an 8-convention string case lab and side-by-side text diff checker.",
+        "Implemented GDPR-compliant consent manager with opt-in GA4 custom event tracking.",
+        "Optimized Web Vitals for Lighthouse 95-100 scores via Next.js 14 App Router SSG static export, next/font/google, and ES2022 bundle targeting."
+      ],
+      "links": {
+        "site": "https://strinza.vercel.app",
+        "github": "https://github.com/Manoj-kandpal/Strinza"
+      }
+    },
     {
       "name": "Portfolio Website & AI Assistant",
       "description": "Co-engineered with Google Antigravity AI, featuring a live Gemini LLM assistant via Cloudflare Worker proxy, SSG pre-rendering, and AEO optimization.",

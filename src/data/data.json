@@ -92,6 +92,7 @@
           "Next.js",
           "Nuxt.js",
           "Vue",
+          "Tailwind CSS",
           "HTML5",
           "CSS3 / SCSS"
         ]
@@ -158,6 +159,20 @@
     "title": "A couple of things built outside the day job.",
     "subtitle": "Personal builds that dig into frontend craft and backend architecture.",
     "items": [
+      {
+        "title": "Strinza — Developer String Utilities Suite",
+        "description": "A privacy-first, 100% client-side string transformation and analysis platform featuring URL/Base64/HTML encoders, string case converters, line-by-line text diff checker, and GDPR-compliant consent manager.",
+        "tags": [
+          "Next.js 14",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vercel",
+          "SSG",
+          "Client-Side Privacy",
+          "GA4 Analytics"
+        ],
+        "demo": "https://strinza.vercel.app"
+      },
       {
         "title": "Portfolio Website & AI Assistant",
         "description": "A high-performance developer portfolio co-engineered with Google Antigravity AI, featuring a live Gemini LLM assistant, SSG pre-rendering, and SEO & AEO optimization.",
