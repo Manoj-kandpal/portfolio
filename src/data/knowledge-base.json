@@ -6,7 +6,7 @@
     "hometown": "Haridwar, Uttarakhand, India",
     "phone": "+91-7248043509",
     "email": "manojkandpal.official@gmail.com",
-    "summary": "Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end — from JavaScript/TypeScript frontends (React, Nuxt.js, Vue) to Java and Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale.",
+    "summary": "Full Stack Software Engineer with 4+ years of experience building enterprise-scale web applications end to end. I work across JavaScript/TypeScript frontends (React, Nuxt.js, Vue) and Java/Spring Boot microservices on Azure. Skilled in REST API design, relational and NoSQL databases, Git-based CI/CD workflows, and automated testing, with a track record of performance optimization, code reviews, and Agile/Scrum delivery at scale.",
     "personalBackground": {
       "origin": "Born and raised in Haridwar, Uttarakhand.",
       "schooling": "Completed schooling at Gayatri Vidyapeeth, Shantikunj, Haridwar.",
@@ -103,7 +103,7 @@
       "location": "Bengaluru, Karnataka",
       "period": "Mar 2022 – Aug 2025",
       "highlights": [
-        "Worked as a full stack developer on the core Case Management platform — built and maintained backend microservices using Java, Spring Boot, and Azure cloud-native architectures, and developed the Next.js frontend.",
+        "Worked as a full stack developer on the core Case Management platform. Built and maintained backend microservices using Java, Spring Boot, and Azure cloud-native architectures, and developed the Next.js frontend.",
         "Participated actively in Agile/Scrum processes including sprint planning, estimation, retrospectives, and daily pull request code reviews using Git.",
         "Optimized frontend and backend performance across legacy modules to improve UI responsiveness and API efficiency.",
         "Deployed semantic, SEO-friendly frontend architecture across production pages to maximize search engine discoverability.",
@@ -172,7 +172,7 @@
   },
   "projects": [
     {
-      "name": "Strinza — Developer String Utilities Suite",
+      "name": "Strinza: Developer String Utilities Suite",
       "description": "Privacy-first, 100% client-side string transformation and analysis platform featuring URL/Base64/HTML encoders, 8-convention string case lab, side-by-side text diff checker, and GDPR consent manager.",
       "highlights": [
         "Engineered 100% client-side computation in V8 JavaScript guaranteeing zero data transmission or server logging for sensitive credentials.",

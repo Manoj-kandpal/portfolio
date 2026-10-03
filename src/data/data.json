@@ -5,10 +5,10 @@
     "title": "Full Stack Software Engineer",
     "location": "Bengaluru, India",
     "status": "🟢 Available for Full Stack Software Engineer roles",
-    "eyebrow": "Full Stack Software Engineer — Bengaluru, India",
+    "eyebrow": "Full Stack Software Engineer | Bengaluru, India",
     "heroHeadline": "Manoj Kandpal",
     "heroRole": "Building enterprise platforms that ship, from API to interface.",
-    "heroSub": "4+ years engineering web applications end to end — <strong>Java & Spring Boot</strong> microservices on Azure, paired with <strong>React, Next.js & Nuxt.js</strong> frontends used by <strong>10,000+ daily users</strong> at A.P. Moller – Maersk.",
+    "heroSub": "4+ years engineering web applications end to end. <strong>Java & Spring Boot</strong> microservices on Azure, paired with <strong>React, Next.js & Nuxt.js</strong> frontends used by <strong>10,000+ daily users</strong> at A.P. Moller - Maersk.",
     "photo": "assets/manoj-kandpal.jpg",
     "resume": "assets/Manoj_kandpal_resume.pdf",
     "email": "manojkandpal.official@gmail.com",
@@ -20,8 +20,8 @@
   "about": {
     "eyebrow": "About",
     "paragraphs": [
-      "I'm a full stack engineer who enjoys the whole stack — designing REST APIs and Spring Boot microservices on one side, and building fast, accessible React and Next.js interfaces on the other.",
-      "At A.P. Moller – Maersk, I've spent 4+ years shipping features for enterprise web platforms — from modernizing global navigation on maersk.com to leading an AI-powered support widget and driving double-digit engagement gains through A/B testing and behavioral analytics."
+      "I'm a full stack engineer who enjoys the whole stack, designing REST APIs and Spring Boot microservices on one side, building fast, accessible React and Next.js interfaces on the other.",
+      "At A.P. Moller - Maersk, I've spent 4+ years shipping features for enterprise web platforms: modernizing global navigation on maersk.com, leading an AI-powered support widget, and driving double-digit engagement gains through A/B testing and behavioral analytics."
     ],
     "stats": [
       {
@@ -41,12 +41,12 @@
   "experience": {
     "eyebrow": "Experience",
     "title": "Four years, one company, two chapters of growth.",
-    "subtitle": "Every stop on this route is a real milestone — from associate engineer to owning AI-driven features end to end.",
+    "subtitle": "Every stop on this route is a real milestone, from associate engineer to owning AI-driven features end to end.",
     "jobs": [
       {
         "role": "Software Engineer",
         "company": "A.P. Moller – Maersk, Bengaluru",
-        "date": "Sep 2025 — Present",
+        "date": "Sep 2025 – Present",
         "highlights": [
           "Design and build new Java & Spring Boot microservices and REST APIs, integrating them with the Next.js frontend on Azure and optimizing data serialization and caching for UI responsiveness.",
           "Migrated legacy Spring Boot 2.x microservices to modern releases, enhancing application security posture, startup speed, and API reliability.",
@@ -60,9 +60,9 @@
       {
         "role": "Associate Software Engineer",
         "company": "A.P. Moller – Maersk, Bengaluru",
-        "date": "Mar 2022 — Aug 2025",
+        "date": "Mar 2022 – Aug 2025",
         "highlights": [
-          "Full stack developer on the core Case Management platform — built backend microservices in Java & Spring Boot on Azure, and the Next.js frontend.",
+          "Full stack developer on the core Case Management platform. Built backend microservices in Java & Spring Boot on Azure, and the Next.js frontend.",
           "Migrated manual testing to Cypress, cutting regression testing effort by 80–90%.",
           "Optimized frontend and backend performance across legacy modules to improve UI responsiveness and API efficiency.",
           "Deployed semantic, SEO-friendly frontend architecture across production pages to maximize discoverability.",
@@ -74,7 +74,7 @@
   "skills": {
     "eyebrow": "Skills",
     "title": "The toolkit, end to end.",
-    "subtitle": "From data structures to deployment — the layers I work across daily.",
+    "subtitle": "From data structures to deployment: the layers I work across daily.",
     "categories": [
       {
         "name": "Languages",
@@ -160,7 +160,7 @@
     "subtitle": "Personal builds that dig into frontend craft and backend architecture.",
     "items": [
       {
-        "title": "Strinza — Developer String Utilities Suite",
+        "title": "Strinza: Developer String Utilities Suite",
         "description": "A privacy-first, 100% client-side string transformation and analysis platform featuring URL/Base64/HTML encoders, string case converters, line-by-line text diff checker, and GDPR-compliant consent manager.",
         "tags": [
           "Next.js 14",
