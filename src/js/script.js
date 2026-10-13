@@ -136,10 +136,24 @@ function initCookieConsent() {
   const overlay = document.getElementById('cookieOverlay');
   if (!banner) return;
 
-  function showConsentModal() {
+  function showConsentModal(withOverlay = false) {
     banner.removeAttribute('hidden');
-    if (overlay) overlay.removeAttribute('hidden');
-    document.body.style.overflow = 'hidden';
+    if (withOverlay && overlay) {
+      overlay.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+    } else if (overlay) {
+      overlay.setAttribute('hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // Safety check: if an adblocker or extension forces the banner hidden, dismantle any overlay & scroll lock
+    setTimeout(() => {
+      const isBannerHidden = banner.offsetParent === null || window.getComputedStyle(banner).display === 'none';
+      if (isBannerHidden) {
+        if (overlay) overlay.setAttribute('hidden', 'true');
+        document.body.style.overflow = '';
+      }
+    }, 150);
   }
 
   function hideConsentModal() {
@@ -150,11 +164,13 @@ function initCookieConsent() {
 
   const savedConsent = localStorage.getItem('mk-cookie-consent');
   if (!savedConsent) {
-    showConsentModal();
+    // Non-intrusive bottom banner on initial load — NO full-screen blur, NO scroll lock!
+    showConsentModal(false);
   }
 
   const acceptBtn = document.getElementById('cookieAccept');
   const declineBtn = document.getElementById('cookieDecline');
+  const closeBtn = document.getElementById('cookieClose');
   const settingsBtn = document.getElementById('cookieSettingsBtn');
 
   if (acceptBtn) {
@@ -184,9 +200,27 @@ function initCookieConsent() {
     });
   }
 
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      hideConsentModal();
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', () => {
+      hideConsentModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !banner.hasAttribute('hidden')) {
+      hideConsentModal();
+    }
+  });
+
   if (settingsBtn) {
     settingsBtn.addEventListener('click', () => {
-      showConsentModal();
+      showConsentModal(true);
     });
   }
 }

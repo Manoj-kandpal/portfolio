@@ -384,10 +384,11 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 9998;
+  cursor: pointer;
   animation: cookieFadeIn 0.3s ease;
 }
 .cookie-overlay[hidden] {
@@ -401,31 +402,35 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
 .cookie-banner {
   position: fixed;
   bottom: 24px;
-  right: 24px;
-  max-width: 420px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(500px, calc(100vw - 32px));
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 20px;
-  box-shadow: 0 12px 32px var(--shadow);
+  box-shadow: 0 16px 40px var(--shadow), 0 0 0 1px var(--border);
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  backdrop-filter: blur(10px);
-  animation: cookieSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  gap: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: cookieSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .cookie-banner[hidden] {
   display: none !important;
 }
 @keyframes cookieSlideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 .cookie-banner-content {
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  position: relative;
+  padding-right: 20px;
 }
 .cookie-icon {
   color: var(--accent);
@@ -437,6 +442,24 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
   color: var(--ink-muted);
   line-height: 1.45;
   margin: 0;
+}
+.cookie-close-btn {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.cookie-close-btn:hover {
+  color: var(--ink);
+  background: var(--accent-soft);
 }
 .cookie-actions {
   display: flex;
@@ -450,10 +473,9 @@ footer { padding: 32px 24px; text-align: center; font-size: 0.82rem; color: var(
 }
 @media (max-width: 600px) {
   .cookie-banner {
-    left: 16px;
-    right: 16px;
     bottom: 16px;
-    max-width: none;
+    width: calc(100vw - 24px);
+    padding: 14px 16px;
   }
 }
 
